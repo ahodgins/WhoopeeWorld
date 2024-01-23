@@ -4,3 +4,4 @@ extends Area2D
 
 func animate():
 	animtated_sprite.play("default")
+	$Winner.play()

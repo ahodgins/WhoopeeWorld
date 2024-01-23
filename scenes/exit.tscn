@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp1xvbr4i2lur"]
+[gd_scene load_steps=15 format=3 uid="uid://bp1xvbr4i2lur"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_sreue"]
 [ext_resource type="Texture2D" uid="uid://db728e347pscw" path="res://assets/textures/other/End (Pressed) (64x64).png" id="2_gx7pn"]
+[ext_resource type="AudioStream" uid="uid://botugb4tj0akq" path="res://assets/audio/price-is-right-a-winner.mp3" id="3_olpry"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2f1gl"]
 atlas = ExtResource("2_gx7pn")
@@ -91,3 +92,6 @@ shape = SubResource("CircleShape2D_lgco3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1, -6)
 shape = SubResource("RectangleShape2D_g8mmr")
+
+[node name="Winner" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_olpry")

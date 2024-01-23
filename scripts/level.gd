@@ -1,9 +1,11 @@
 extends Node2D
 
 @export var next_level: PackedScene = null
+@export var is_final_level: bool = false
 
 @onready var start = $Start
 @onready var exit = $Exit
+@onready var death_zone = $deathzone
 
 var player = null
 
@@ -16,6 +18,7 @@ func _ready():
 		trap.touched_player.connect(_on_trap_touched_player)
 		
 	exit.body_entered.connect(_on_exit_body_entered)
+	death_zone.body_entered.connect(_on_deathzone_body_entered)
 
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
@@ -42,3 +45,5 @@ func _on_exit_body_entered(body):
 			player.active = false
 			await get_tree().create_timer(1.5).timeout
 			get_tree().change_scene_to_packed(next_level)
+		else:
+			get_tree().unload_current_scene()
