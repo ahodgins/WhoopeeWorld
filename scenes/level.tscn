@@ -1,25 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://di82sqvheoub6"]
+[gd_scene load_steps=13 format=3 uid="uid://di82sqvheoub6"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ot5w2"]
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="2_2lw1n"]
 [ext_resource type="PackedScene" uid="uid://i7xgpj8et0y0" path="res://scenes/bg.tscn" id="2_2mefe"]
+[ext_resource type="PackedScene" uid="uid://cixu483xcbpfl" path="res://scenes/level_2.tscn" id="2_v81mg"]
 [ext_resource type="Texture2D" uid="uid://cxyanoy0itykc" path="res://assets/textures/bg/Pink.png" id="3_sp0gi"]
 [ext_resource type="PackedScene" uid="uid://bkedqikw7erbs" path="res://scenes/saw.tscn" id="4_guuba"]
 [ext_resource type="PackedScene" uid="uid://b7jafdi8riflh" path="res://scenes/jump_pad.tscn" id="4_kh056"]
 [ext_resource type="PackedScene" uid="uid://dhypn8a6is5vp" path="res://scenes/spike_ball.tscn" id="5_pe5hg"]
 [ext_resource type="PackedScene" uid="uid://bxywdh3fvwgev" path="res://scenes/tile_map.tscn" id="6_l3ab5"]
+[ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="9_lrmab"]
+[ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="9_wdd8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlf63"]
 size = Vector2(866, 36)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ot5w2")
+next_level = ExtResource("2_v81mg")
 
 [node name="BG" parent="." instance=ExtResource("2_2mefe")]
 bg_texture = ExtResource("3_sp0gi")
-
-[node name="player" parent="." instance=ExtResource("2_2lw1n")]
-position = Vector2(42, 207)
 
 [node name="deathzone" type="Area2D" parent="."]
 position = Vector2(207, 286)
@@ -29,9 +30,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deathzone"]
 position = Vector2(1, 34)
 shape = SubResource("RectangleShape2D_nlf63")
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(43, 204)
 
 [node name="Traps" type="Node2D" parent="."]
 
@@ -45,7 +43,7 @@ position = Vector2(451, 197)
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("4_kh056")]
 position = Vector2(83, 209)
-jump_force = 175
+jump_force = 200
 
 [node name="JumpPad2" parent="Objects" instance=ExtResource("4_kh056")]
 position = Vector2(225, 209)
@@ -61,6 +59,15 @@ jump_force = 250
 
 [node name="TileMap" parent="." instance=ExtResource("6_l3ab5")]
 layer_0/tile_data = PackedInt32Array(1048574, 393217, 2, 1048575, 458753, 2, 983040, 458753, 2, 983041, 458753, 2, 983042, 458753, 2, 983043, 458753, 2, 983044, 458753, 2, 983045, 458753, 2, 983046, 458753, 2, 983047, 458753, 2, 983048, 458753, 2, 983049, 458753, 2, 983050, 458753, 2, 983051, 458753, 2, 983052, 458753, 2, 983053, 458753, 2, 983054, 458753, 2, 983055, 458753, 2, 983056, 458753, 2, 983057, 458753, 2, 983058, 458753, 2, 983059, 458753, 2, 983060, 458753, 2, 983061, 458753, 2, 983062, 458753, 2, 983063, 458753, 2, 983064, 458753, 2, 983065, 458753, 2, 983066, 458753, 2, 983067, 458753, 2, 983068, 458753, 2, 983069, 458753, 2, 983070, 458753, 2, 917502, 393217, 0, 983038, 393217, 1, 917503, 458753, 0, 983039, 458753, 1, 851968, 458753, 0, 917504, 458753, 1, 851969, 458753, 0, 917505, 458753, 1, 851970, 458753, 0, 917506, 458753, 1, 851971, 458753, 0, 917507, 458753, 1, 851972, 458753, 0, 917508, 458753, 1, 851973, 458753, 0, 917509, 458753, 1, 851974, 458753, 0, 917510, 458753, 1, 851975, 458753, 0, 917511, 458753, 1, 851976, 458753, 0, 917512, 458753, 1, 851977, 458753, 0, 917513, 458753, 1, 851978, 458753, 0, 917514, 458753, 1, 851979, 458753, 0, 917515, 458753, 1, 851980, 458753, 0, 917516, 458753, 1, 851981, 458753, 0, 917517, 458753, 1, 851982, 458753, 0, 917518, 458753, 1, 851983, 458753, 0, 917519, 458753, 1, 851984, 458753, 0, 917520, 458753, 1, 851985, 458753, 0, 917521, 458753, 1, 851986, 458753, 0, 917522, 458753, 1, 851987, 458753, 0, 917523, 458753, 1, 851988, 458753, 0, 917524, 458753, 1, 851989, 458753, 0, 917525, 458753, 1, 851990, 458753, 0, 917526, 458753, 1, 851991, 458753, 0, 917527, 458753, 1, 851992, 458753, 0, 917528, 458753, 1, 851993, 458753, 0, 917529, 458753, 1, 851994, 458753, 0, 917530, 458753, 1, 851995, 458753, 0, 917531, 458753, 1, 851996, 458753, 0, 917532, 458753, 1, 851997, 458753, 0, 917533, 458753, 1, 851998, 458753, 0, 917534, 458753, 1, 851999, 524289, 0, 917535, 524289, 1, 983071, 524289, 2, 10, 1114113, 1, 11, 1179649, 1, 12, 1245185, 1, 7, 1114113, 1, 8, 1179649, 1, 9, 1245185, 1, 4, 1114113, 1, 5, 1179649, 1, 6, 1245185, 1, 1, 1114113, 1, 2, 1179649, 1, 3, 1245185, 1, 65534, 1114113, 1, 65535, 1179649, 1, 0, 1245185, 1, 262158, 1114113, 2, 262159, 1114113, 2, 524304, 524289, 4, 524305, 458753, 4)
+
+[node name="Start" parent="." instance=ExtResource("9_lrmab")]
+position = Vector2(-9, 209)
+
+[node name="Exit" parent="." instance=ExtResource("9_wdd8u")]
+position = Vector2(-8, 4)
+
+[node name="player" parent="." instance=ExtResource("2_2lw1n")]
+position = Vector2(42, 207)
 
 [connection signal="body_entered" from="deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="touched_player" from="Traps/Saw" to="." method="_on_trap_touched_player"]
