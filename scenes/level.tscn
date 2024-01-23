@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://di82sqvheoub6"]
+[gd_scene load_steps=10 format=3 uid="uid://di82sqvheoub6"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ot5w2"]
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="2_2lw1n"]
+[ext_resource type="PackedScene" uid="uid://i7xgpj8et0y0" path="res://scenes/bg.tscn" id="2_2mefe"]
+[ext_resource type="Texture2D" uid="uid://cxyanoy0itykc" path="res://assets/textures/bg/Pink.png" id="3_sp0gi"]
 [ext_resource type="PackedScene" uid="uid://bkedqikw7erbs" path="res://scenes/saw.tscn" id="4_guuba"]
 [ext_resource type="PackedScene" uid="uid://b7jafdi8riflh" path="res://scenes/jump_pad.tscn" id="4_kh056"]
 [ext_resource type="PackedScene" uid="uid://dhypn8a6is5vp" path="res://scenes/spike_ball.tscn" id="5_pe5hg"]
@@ -13,8 +15,11 @@ size = Vector2(866, 36)
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ot5w2")
 
+[node name="BG" parent="." instance=ExtResource("2_2mefe")]
+bg_texture = ExtResource("3_sp0gi")
+
 [node name="player" parent="." instance=ExtResource("2_2lw1n")]
-position = Vector2(274, 200)
+position = Vector2(42, 207)
 
 [node name="deathzone" type="Area2D" parent="."]
 position = Vector2(207, 286)
@@ -26,12 +31,12 @@ position = Vector2(1, 34)
 shape = SubResource("RectangleShape2D_nlf63")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(302, 201)
+position = Vector2(43, 204)
 
 [node name="Traps" type="Node2D" parent="."]
 
 [node name="Saw" parent="Traps" instance=ExtResource("4_guuba")]
-position = Vector2(32, 186)
+position = Vector2(139, 190)
 
 [node name="SpikeBall" parent="Traps" instance=ExtResource("5_pe5hg")]
 position = Vector2(451, 197)
@@ -39,11 +44,11 @@ position = Vector2(451, 197)
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("4_kh056")]
-position = Vector2(209, 207)
+position = Vector2(83, 209)
 jump_force = 175
 
 [node name="JumpPad2" parent="Objects" instance=ExtResource("4_kh056")]
-position = Vector2(155, 209)
+position = Vector2(225, 209)
 jump_force = 250
 
 [node name="JumpPad3" parent="Objects" instance=ExtResource("4_kh056")]
