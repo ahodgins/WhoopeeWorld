@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://di82sqvheoub6"]
+[gd_scene load_steps=9 format=3 uid="uid://di82sqvheoub6"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ot5w2"]
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="2_2lw1n"]
 [ext_resource type="Texture2D" uid="uid://ba2c71cg1pjuc" path="res://icon.svg" id="3_c6lii"]
+[ext_resource type="PackedScene" uid="uid://bkedqikw7erbs" path="res://scenes/saw.tscn" id="4_guuba"]
 [ext_resource type="PackedScene" uid="uid://b7jafdi8riflh" path="res://scenes/jump_pad.tscn" id="4_kh056"]
+[ext_resource type="PackedScene" uid="uid://dhypn8a6is5vp" path="res://scenes/spike_ball.tscn" id="5_pe5hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24vhm"]
 size = Vector2(406.5, 8.5)
@@ -15,7 +17,7 @@ size = Vector2(866, 36)
 script = ExtResource("1_ot5w2")
 
 [node name="player" parent="." instance=ExtResource("2_2lw1n")]
-position = Vector2(170, 126)
+position = Vector2(67, 234)
 
 [node name="TempGround" type="StaticBody2D" parent="."]
 
@@ -41,11 +43,24 @@ shape = SubResource("RectangleShape2D_nlf63")
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(383, 210)
 
-[node name="JumpPad" parent="." instance=ExtResource("4_kh056")]
-position = Vector2(244, 238)
+[node name="Traps" type="Node2D" parent="."]
 
-[node name="JumpPad2" parent="." instance=ExtResource("4_kh056")]
+[node name="Saw" parent="Traps" instance=ExtResource("4_guuba")]
+position = Vector2(31, 220)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("5_pe5hg")]
+position = Vector2(354, 224)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="JumpPad" parent="Objects" instance=ExtResource("4_kh056")]
+position = Vector2(195, 239)
+jump_force = 175
+
+[node name="JumpPad2" parent="Objects" instance=ExtResource("4_kh056")]
 position = Vector2(154, 239)
-jump_force = 450
+jump_force = 250
 
 [connection signal="body_entered" from="deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="touched_player" from="Traps/Saw" to="." method="_on_trap_touched_player"]
+[connection signal="touched_player" from="Traps/SpikeBall" to="." method="_on_trap_touched_player"]
