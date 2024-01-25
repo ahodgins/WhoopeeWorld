@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8hws4urxq7ey"]
+
+[ext_resource type="FontFile" uid="uid://ccpcfw2q25vx1" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_13feh"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_macvd"]
+[ext_resource type="PackedScene" uid="uid://d2mo7q706nd0m" path="res://scenes/whoopee.tscn" id="2_nmtwr"]
+[ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="4_ts7x2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2xf6g"]
+font = ExtResource("1_13feh")
+font_size = 40
+font_color = Color(0.898039, 0, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 18
+shadow_color = Color(1, 1, 1, 0.862745)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a7xm4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcucb"]
+size = Vector2(521, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8mtv"]
+size = Vector2(58, 171)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_macvd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.5
+offset_top = -76.0
+offset_right = 192.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Whoopee World"
+label_settings = SubResource("LabelSettings_2xf6g")
+horizontal_alignment = 1
+
+[node name="Whoopee" parent="." instance=ExtResource("2_nmtwr")]
+position = Vector2(325, 70)
+jump_force = 150
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -1.0
+offset_right = 94.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_13feh")
+text = "START"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = 46.5
+offset_right = 57.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_13feh")
+theme_override_font_sizes/font_size = 12
+text = "QUIT"
+
+[node name="player" parent="." instance=ExtResource("4_ts7x2")]
+position = Vector2(259, 65)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -39)
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_a7xm4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(244, 120)
+shape = SubResource("RectangleShape2D_fcucb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(19, 75.5)
+shape = SubResource("RectangleShape2D_p8mtv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(457, 76)
+shape = SubResource("RectangleShape2D_p8mtv")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
