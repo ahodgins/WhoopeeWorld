@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Player
 
 @export var gravity = 400
-@export var speed = 125
-@export var jump_force = 169
+@export var speed = 150
+@export var jump_force = 180
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -19,7 +19,6 @@ func _physics_process(delta):
 	if active == true:
 		if Input.is_action_just_pressed("jump") && is_on_floor():
 			jump(jump_force)
-			$AudioStreamPlayer2D.play()
 			
 		
 		direction = Input.get_axis("move_left","move_right")
@@ -33,7 +32,8 @@ func _physics_process(delta):
 	
 func jump(force):
 	velocity.y = -force
-	
+
+
 func update_animations(direction):
 	if is_on_floor():
 		if direction == 0:
@@ -45,4 +45,3 @@ func update_animations(direction):
 			animated_sprite.play("jump")
 		else:
 			animated_sprite.play("fall")
-
