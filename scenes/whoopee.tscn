@@ -40,6 +40,4 @@ autoplay = "idle"
 position = Vector2(3.5, -14)
 shape = SubResource("RectangleShape2D_a3shd")
 
-[node name="WetFart" type="AudioStreamPlayer2D" parent="."]
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

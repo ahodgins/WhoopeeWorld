@@ -217,5 +217,3 @@ frame_progress = 0.0981249
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_bottom = 247
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

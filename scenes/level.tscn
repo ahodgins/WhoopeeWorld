@@ -1,64 +1,47 @@
-[gd_scene load_steps=13 format=3 uid="uid://di82sqvheoub6"]
+[gd_scene load_steps=9 format=3 uid="uid://qfv8oigod7bx"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_ot5w2"]
-[ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="2_2lw1n"]
-[ext_resource type="PackedScene" uid="uid://i7xgpj8et0y0" path="res://scenes/bg.tscn" id="2_2mefe"]
-[ext_resource type="PackedScene" uid="uid://cixu483xcbpfl" path="res://scenes/level_2.tscn" id="2_v81mg"]
-[ext_resource type="Texture2D" uid="uid://cxyanoy0itykc" path="res://assets/textures/bg/Pink.png" id="3_sp0gi"]
-[ext_resource type="PackedScene" uid="uid://bkedqikw7erbs" path="res://scenes/saw.tscn" id="4_guuba"]
-[ext_resource type="PackedScene" uid="uid://b7jafdi8riflh" path="res://scenes/jump_pad.tscn" id="4_kh056"]
-[ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="5_d5ovj"]
-[ext_resource type="PackedScene" uid="uid://dhypn8a6is5vp" path="res://scenes/spike_ball.tscn" id="5_pe5hg"]
-[ext_resource type="PackedScene" uid="uid://bxywdh3fvwgev" path="res://scenes/tile_map.tscn" id="6_l3ab5"]
-[ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="9_lrmab"]
-[ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="9_wdd8u"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_bi3e3"]
+[ext_resource type="Texture2D" uid="uid://btoe1stpkwahm" path="res://assets/world/WinterTileset/png/BG/BG.png" id="2_2r0ht"]
+[ext_resource type="PackedScene" uid="uid://cixu483xcbpfl" path="res://scenes/level_2.tscn" id="2_xrgd8"]
+[ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="3_godbk"]
+[ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="4_ks1dw"]
+[ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="5_f0hp6"]
+[ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="6_b0k4h"]
+[ext_resource type="PackedScene" uid="uid://d2mo7q706nd0m" path="res://scenes/whoopee.tscn" id="7_chmok"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_ot5w2")
-next_level = ExtResource("2_v81mg")
+script = ExtResource("1_bi3e3")
+next_level = ExtResource("2_xrgd8")
 
-[node name="BG" parent="." instance=ExtResource("2_2mefe")]
-bg_texture = ExtResource("3_sp0gi")
+[node name="StaticBG" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -398.0
+offset_right = 1593.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_2r0ht")
+stretch_mode = 2
 
-[node name="deathzone" parent="." instance=ExtResource("5_d5ovj")]
+[node name="deathzone" parent="." instance=ExtResource("3_godbk")]
 
-[node name="Traps" type="Node2D" parent="."]
+[node name="Start" parent="." instance=ExtResource("4_ks1dw")]
+position = Vector2(-1, 213)
 
-[node name="Saw" parent="Traps" instance=ExtResource("4_guuba")]
-position = Vector2(139, 190)
+[node name="Exit" parent="." instance=ExtResource("5_f0hp6")]
+position = Vector2(609, 208)
 
-[node name="SpikeBall" parent="Traps" instance=ExtResource("5_pe5hg")]
-position = Vector2(451, 197)
-
-[node name="Objects" type="Node2D" parent="."]
-
-[node name="JumpPad" parent="Objects" instance=ExtResource("4_kh056")]
-position = Vector2(83, 209)
-jump_force = 200
-
-[node name="JumpPad2" parent="Objects" instance=ExtResource("4_kh056")]
-position = Vector2(225, 209)
-jump_force = 250
-
-[node name="JumpPad3" parent="Objects" instance=ExtResource("4_kh056")]
-position = Vector2(272, 129)
-jump_force = 250
-
-[node name="JumpPad4" parent="Objects" instance=ExtResource("4_kh056")]
-position = Vector2(244, 66)
-jump_force = 250
-
-[node name="TileMap" parent="." instance=ExtResource("6_l3ab5")]
-layer_0/tile_data = PackedInt32Array(1048574, 393217, 2, 1048575, 458753, 2, 983040, 458753, 2, 983041, 458753, 2, 983042, 458753, 2, 983043, 458753, 2, 983044, 458753, 2, 983045, 458753, 2, 983046, 458753, 2, 983047, 458753, 2, 983048, 458753, 2, 983049, 458753, 2, 983050, 458753, 2, 983051, 458753, 2, 983052, 458753, 2, 983053, 458753, 2, 983054, 458753, 2, 983055, 458753, 2, 983056, 458753, 2, 983057, 458753, 2, 983058, 458753, 2, 983059, 458753, 2, 983060, 458753, 2, 983061, 458753, 2, 983062, 458753, 2, 983063, 458753, 2, 983064, 458753, 2, 983065, 458753, 2, 983066, 458753, 2, 983067, 458753, 2, 983068, 458753, 2, 983069, 458753, 2, 983070, 458753, 2, 917502, 393217, 0, 983038, 393217, 1, 917503, 458753, 0, 983039, 458753, 1, 851968, 458753, 0, 917504, 458753, 1, 851969, 458753, 0, 917505, 458753, 1, 851970, 458753, 0, 917506, 458753, 1, 851971, 458753, 0, 917507, 458753, 1, 851972, 458753, 0, 917508, 458753, 1, 851973, 458753, 0, 917509, 458753, 1, 851974, 458753, 0, 917510, 458753, 1, 851975, 458753, 0, 917511, 458753, 1, 851976, 458753, 0, 917512, 458753, 1, 851977, 458753, 0, 917513, 458753, 1, 851978, 458753, 0, 917514, 458753, 1, 851979, 458753, 0, 917515, 458753, 1, 851980, 458753, 0, 917516, 458753, 1, 851981, 458753, 0, 917517, 458753, 1, 851982, 458753, 0, 917518, 458753, 1, 851983, 458753, 0, 917519, 458753, 1, 851984, 458753, 0, 917520, 458753, 1, 851985, 458753, 0, 917521, 458753, 1, 851986, 458753, 0, 917522, 458753, 1, 851987, 458753, 0, 917523, 458753, 1, 851988, 458753, 0, 917524, 458753, 1, 851989, 458753, 0, 917525, 458753, 1, 851990, 458753, 0, 917526, 458753, 1, 851991, 458753, 0, 917527, 458753, 1, 851992, 458753, 0, 917528, 458753, 1, 851993, 458753, 0, 917529, 458753, 1, 851994, 458753, 0, 917530, 458753, 1, 851995, 458753, 0, 917531, 458753, 1, 851996, 458753, 0, 917532, 458753, 1, 851997, 458753, 0, 917533, 458753, 1, 851998, 458753, 0, 917534, 458753, 1, 851999, 524289, 0, 917535, 524289, 1, 983071, 524289, 2, 10, 1114113, 1, 11, 1179649, 1, 12, 1245185, 1, 7, 1114113, 1, 8, 1179649, 1, 9, 1245185, 1, 4, 1114113, 1, 5, 1179649, 1, 6, 1245185, 1, 1, 1114113, 1, 2, 1179649, 1, 3, 1245185, 1, 65534, 1114113, 1, 65535, 1179649, 1, 0, 1245185, 1, 262158, 1114113, 2, 262159, 1114113, 2, 524304, 524289, 4, 524305, 458753, 4)
-
-[node name="Start" parent="." instance=ExtResource("9_lrmab")]
-position = Vector2(-9, 209)
-
-[node name="Exit" parent="." instance=ExtResource("9_wdd8u")]
-position = Vector2(-8, 4)
-
-[node name="player" parent="." instance=ExtResource("2_2lw1n")]
+[node name="Player" parent="." instance=ExtResource("6_b0k4h")]
 position = Vector2(42, 207)
 
-[connection signal="touched_player" from="Traps/Saw" to="." method="_on_trap_touched_player"]
-[connection signal="touched_player" from="Traps/SpikeBall" to="." method="_on_trap_touched_player"]
+[node name="Whoopees" type="Node2D" parent="."]
+
+[node name="Whoopee" parent="Whoopees" instance=ExtResource("7_chmok")]
+position = Vector2(420, 231)
+
+[connection signal="body_exited" from="Whoopees/Whoopee" to="Whoopees/Whoopee" method="_on_body_exited"]

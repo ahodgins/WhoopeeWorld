@@ -1,26 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cixu483xcbpfl"]
+[gd_scene load_steps=6 format=3 uid="uid://cixu483xcbpfl"]
 
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="1_6cll4"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_qobcs"]
-[ext_resource type="PackedScene" uid="uid://cljy18bouax57" path="res://scenes/level_3.tscn" id="2_g5rrd"]
-[ext_resource type="PackedScene" uid="uid://i7xgpj8et0y0" path="res://scenes/bg.tscn" id="2_iweew"]
-[ext_resource type="Texture2D" uid="uid://yqvtwfmo2gev" path="res://assets/textures/bg/Brown.png" id="3_3rigw"]
 [ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="4_cviga"]
 [ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="5_sjycc"]
-[ext_resource type="PackedScene" uid="uid://bxywdh3fvwgev" path="res://scenes/tile_map.tscn" id="6_iadrp"]
 [ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="7_f8yac"]
-[ext_resource type="PackedScene" uid="uid://b7jafdi8riflh" path="res://scenes/jump_pad.tscn" id="8_r4iff"]
-[ext_resource type="PackedScene" uid="uid://bkedqikw7erbs" path="res://scenes/saw.tscn" id="10_0q0rj"]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource("1_qobcs")
-next_level = ExtResource("2_g5rrd")
-
-[node name="BG" parent="." instance=ExtResource("2_iweew")]
-bg_texture = ExtResource("3_3rigw")
-
-[node name="TileMap" parent="." instance=ExtResource("6_iadrp")]
-layer_0/tile_data = PackedInt32Array(983040, 393217, 8, 1048576, 393217, 9, 983041, 458753, 8, 1048577, 458753, 9, 983042, 524289, 8, 1048578, 524289, 9, 983043, 393217, 8, 1048579, 393217, 9, 983044, 458753, 8, 1048580, 458753, 9, 983045, 524289, 8, 1048581, 524289, 9, 983046, 393217, 8, 1048582, 393217, 9, 983047, 458753, 8, 1048583, 458753, 9, 983048, 524289, 8, 1048584, 524289, 9, 983049, 393217, 8, 1048585, 393217, 9, 983050, 458753, 8, 1048586, 458753, 9, 983051, 524289, 8, 1048587, 524289, 9, 983052, 393217, 8, 1048588, 393217, 9, 983053, 458753, 8, 1048589, 458753, 9, 983054, 524289, 8, 1048590, 524289, 9, 983055, 393217, 8, 1048591, 393217, 9, 983056, 458753, 8, 1048592, 458753, 9, 983057, 524289, 8, 1048593, 524289, 9, 983058, 393217, 8, 1048594, 393217, 9, 983059, 458753, 8, 1048595, 458753, 9, 983060, 524289, 8, 1048596, 524289, 9, 983061, 393217, 8, 1048597, 393217, 9, 983062, 458753, 8, 1048598, 458753, 9, 983063, 524289, 8, 1048599, 524289, 9, 983064, 393217, 8, 1048600, 393217, 9, 983065, 458753, 8, 1048601, 458753, 9, 983066, 524289, 8, 1048602, 524289, 9, 983067, 393217, 8, 1048603, 393217, 9, 983068, 458753, 8, 1048604, 458753, 9, 983069, 524289, 8, 1048605, 524289, 9)
 
 [node name="Start" parent="." instance=ExtResource("4_cviga")]
 position = Vector2(23, 242)
@@ -30,11 +17,5 @@ position = Vector2(461, 244)
 
 [node name="deathzone" parent="." instance=ExtResource("7_f8yac")]
 
-[node name="JumpPad" parent="." instance=ExtResource("8_r4iff")]
-position = Vector2(107, 241)
-
 [node name="player" parent="." instance=ExtResource("1_6cll4")]
 position = Vector2(34, 225)
-
-[node name="Saw" parent="." instance=ExtResource("10_0q0rj")]
-position = Vector2(168, 222)
