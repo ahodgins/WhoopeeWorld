@@ -107,7 +107,6 @@ shape = SubResource("RectangleShape2D_p8mtv")
 
 [node name="ThemeSong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ipg4u")
-autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
