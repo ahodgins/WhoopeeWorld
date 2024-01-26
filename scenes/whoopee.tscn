@@ -24,20 +24,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3shd"]
-size = Vector2(53, 28)
+size = Vector2(54, 13)
 
 [node name="Whoopee" type="Area2D"]
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ntqtg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_7cxlt")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, -14)
+position = Vector2(2, -8)
 shape = SubResource("RectangleShape2D_a3shd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

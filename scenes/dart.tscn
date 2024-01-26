@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh5mr5cifn4ei"]
+
+[ext_resource type="Script" path="res://scripts/dart.gd" id="1_m5rvg"]
+[ext_resource type="Texture2D" uid="uid://dwdjaxek8y8vn" path="res://assets/misc_art/dart.png" id="2_rwl51"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7cxlt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rwl51")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxbm8"]
+radius = 14.0
+
+[node name="Dart" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_m5rvg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7cxlt")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pxbm8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

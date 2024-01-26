@@ -2,10 +2,14 @@ extends Node2D
 
 @export var next_level: PackedScene = null
 @export var is_final_level: bool = false
+@export var current_level: int
 
 @onready var start = $Start
 @onready var exit = $Exit
 @onready var death_zone = $deathzone
+@onready var level_label = $HUD/LevelPanel/LevelCounter
+@onready var darts_label = $HUD/DartsPanel/DartsCounter
+@onready var whoopees = $Whoopees
 
 var player = null
 
@@ -19,12 +23,26 @@ func _ready():
 		
 	exit.body_entered.connect(_on_exit_body_entered)
 	death_zone.body_entered.connect(_on_deathzone_body_entered)
+	
+	# Set the level
+	level_label.text = "Level: " + str(current_level)
+	
+	# Add all whoopees to a group
+	var whoopee_cushions = whoopees.get_children()
+	
+	for cushion in whoopee_cushions:
+		cushion.add_to_group("whoopee_group")
 
 func _process(delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
+		
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
+	
+	# Display the number of darts the player has.
+	if current_level > 3:
+		darts_label.text = "Darts: " + str(player.dart_count)
 
 
 func _on_deathzone_body_entered(body):
@@ -43,7 +61,20 @@ func _on_exit_body_entered(body):
 		if next_level != null:
 			exit.animate()
 			player.active = false
-			await get_tree().create_timer(1.5).timeout
+			
 			get_tree().change_scene_to_packed(next_level)
+			
+		else:
+			get_tree().unload_current_scene()
+
+
+func _on_whoopee_body_exited(body):
+	if body is Player:
+		if next_level != null:
+			exit.animate()
+			player.active = false
+			
+			get_tree().change_scene_to_packed(next_level)
+			
 		else:
 			get_tree().unload_current_scene()

@@ -2,12 +2,16 @@ extends CharacterBody2D
 class_name Player
 
 @export var gravity = 400
-@export var speed = 150
-@export var jump_force = 180
+@export var speed = 250
+@export var jump_force = 220
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var dart_spawn_point = $Marker2D
+
+const DART = preload("res://scenes/dart.tscn")
 
 var active = true
+var dart_count : int = 0
 
 func _physics_process(delta):
 	if is_on_floor() == false:
@@ -20,14 +24,33 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("jump") && is_on_floor():
 			jump(jump_force)
 			
-		
+		if Input.is_action_just_pressed("fire_dart"):
+			var mouse_pos = get_global_mouse_position()
+			fire_dart(mouse_pos)
+			
 		direction = Input.get_axis("move_left","move_right")
 	if direction != 0:
 		animated_sprite.flip_h = (direction == -1)
+		
 	velocity.x = direction * speed
 	move_and_slide()
 	
 	update_animations(direction)
+	
+
+# Fire dart uses the mouse position when a user clicks to set a target, and
+# the player position as the spawn point for the dart.
+func fire_dart(mouse_pos):
+	if dart_count > 0:
+		var dart = DART.instantiate()
+		get_parent().add_child(dart)
+		dart.initiate(dart_spawn_point.global_position, mouse_pos)
+		
+		dart_count -= 1
+		
+	else:
+		# Could play an "empty" sound or something to show the player has no darts.
+		pass
 	
 	
 func jump(force):
@@ -45,3 +68,7 @@ func update_animations(direction):
 			animated_sprite.play("jump")
 		else:
 			animated_sprite.play("fall")
+			
+			
+func add_darts(num_darts):
+	dart_count += num_darts

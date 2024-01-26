@@ -49,8 +49,7 @@ label_settings = SubResource("LabelSettings_2xf6g")
 horizontal_alignment = 1
 
 [node name="Whoopee" parent="." instance=ExtResource("2_nmtwr")]
-position = Vector2(325, 70)
-jump_force = 150
+position = Vector2(326, 54)
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 1
@@ -85,7 +84,7 @@ theme_override_fonts/font = ExtResource("1_13feh")
 theme_override_font_sizes/font_size = 12
 text = "QUIT"
 
-[node name="player" parent="." instance=ExtResource("4_ts7x2")]
+[node name="Player" parent="." instance=ExtResource("4_ts7x2")]
 position = Vector2(259, 65)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

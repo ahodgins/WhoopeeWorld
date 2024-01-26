@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fqbhsiunj3f"
-path="res://.godot/imported/snowman.png-e5048d5d6610b387ddba6069a8d4c53a.ctex"
+uid="uid://ndwc8ey3jk8t"
+path="res://.godot/imported/left_click2.png-95c77f331e0821ac3c65a6f5bd1159c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/WinterTileset/snowman.png"
-dest_files=["res://.godot/imported/snowman.png-e5048d5d6610b387ddba6069a8d4c53a.ctex"]
+source_file="res://assets/misc_art/left_click2.png"
+dest_files=["res://.godot/imported/left_click2.png-95c77f331e0821ac3c65a6f5bd1159c2.ctex"]
 
 [params]
 

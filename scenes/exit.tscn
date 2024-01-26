@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp1xvbr4i2lur"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_sreue"]
-[ext_resource type="Texture2D" uid="uid://fqbhsiunj3f" path="res://assets/world/WinterTileset/snowman.png" id="2_5tstu"]
+[ext_resource type="Texture2D" uid="uid://fqbhsiunj3f" path="res://assets/misc_art/snowman.png" id="2_q3bbs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mdig7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_5tstu")
+"texture": ExtResource("2_q3bbs")
 }],
 "loop": true,
 "name": &"default",
@@ -23,7 +23,6 @@ height = 38.0
 
 [node name="Exit" type="Area2D"]
 collision_layer = 16
-collision_mask = 2
 script = ExtResource("1_sreue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -39,5 +38,12 @@ shape = SubResource("CircleShape2D_lgco3")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, -19)
+position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_avekr")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -59.0
+offset_right = 22.0
+offset_bottom = -36.0
+text = "Finish"

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://hnwj0u5gmyud"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_r5bw7"]
-[ext_resource type="Texture2D" uid="uid://fqbhsiunj3f" path="res://assets/world/WinterTileset/snowman.png" id="2_m6dpe"]
+[ext_resource type="Texture2D" uid="uid://fqbhsiunj3f" path="res://assets/misc_art/snowman.png" id="2_f6862"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3eq0v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_m6dpe")
+"texture": ExtResource("2_f6862")
 }],
 "loop": true,
 "name": &"default",
@@ -33,3 +33,10 @@ shape = SubResource("CapsuleShape2D_libvu")
 
 [node name="SpawnPosition" type="Marker2D" parent="."]
 position = Vector2(39, -29)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -58.0
+offset_right = 22.0
+offset_bottom = -35.0
+text = "Start"
