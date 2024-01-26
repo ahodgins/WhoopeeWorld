@@ -3,7 +3,11 @@ extends Area2D
 var speed = 450 # dart speed
 var time_remaining = 2.5 # seconds to stay alive
 var velocity = Vector2(0, 0)
+@onready var dart_collision_shape : CollisionShape2D = $CollisionShape2D
 
+func _ready():
+	pass
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	position += velocity * delta
@@ -26,4 +30,9 @@ func initiate(player_pos, mouse_pos):
 	
 
 func _on_body_entered(body):
-	pass
+	if body.is_in_group("Whoopee"):
+		print("Whoopee popped")
+		body.pop_whoopee()
+	
+
+

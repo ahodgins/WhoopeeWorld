@@ -4330,6 +4330,7 @@ load_path = "res://.godot/imported/left_click2.png-95c77f331e0821ac3c65a6f5bd115
 [node name="Level04" type="Node2D"]
 script = ExtResource("1_alexx")
 next_level = ExtResource("2_62s34")
+is_final_level = true
 current_level = 4
 
 [node name="WASD" type="TextureRect" parent="."]

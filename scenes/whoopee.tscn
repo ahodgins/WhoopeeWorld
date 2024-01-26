@@ -26,9 +26,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3shd"]
 size = Vector2(54, 13)
 
-[node name="Whoopee" type="Area2D"]
-collision_layer = 3
-collision_mask = 3
+[node name="Whoopee" type="Area2D" groups=["Whoopee"]]
+collision_layer = 8
+collision_mask = 35
 script = ExtResource("1_ntqtg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WhoopeeWorld"
-run/main_scene="res://scenes/levels/level_04.tscn"
+run/main_scene="res://scenes/levels/level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -66,8 +66,9 @@ fire_dart={
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
 2d_physics/layer_3="deathzone"
-2d_physics/layer_4="trap"
+2d_physics/layer_4="whoopee"
 2d_physics/layer_5="exit_area"
+2d_physics/layer_6="dart"
 
 [rendering]
 

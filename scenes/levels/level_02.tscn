@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://df87hietvu5sk"]
+[gd_scene load_steps=14 format=3 uid="uid://df87hietvu5sk"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_4bbww"]
 [ext_resource type="PackedScene" uid="uid://cjk21f5664y8r" path="res://scenes/levels/level_03.tscn" id="2_y323y"]
@@ -4323,6 +4323,8 @@ sources/0 = SubResource("TileSetAtlasSource_hi7xh")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmwub"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcx5g"]
+
 [node name="Level02" type="Node2D"]
 script = ExtResource("1_4bbww")
 next_level = ExtResource("2_y323y")
@@ -4375,6 +4377,25 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_dmwub")
 metadata/_edit_group_ = true
 
 [node name="LevelCounter" type="Label" parent="HUD/LevelPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "
+"
+
+[node name="DartsPanel" type="Panel" parent="HUD"]
+offset_left = 5.0
+offset_top = 34.0
+offset_right = 125.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pcx5g")
+metadata/_edit_group_ = true
+
+[node name="DartsCounter" type="Label" parent="HUD/DartsPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

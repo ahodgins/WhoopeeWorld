@@ -42,7 +42,10 @@ func _process(delta):
 	
 	# Display the number of darts the player has.
 	if current_level > 3:
+		darts_label.visible = true
 		darts_label.text = "Darts: " + str(player.dart_count)
+	else:
+		darts_label.visible = false
 
 
 func _on_deathzone_body_entered(body):
@@ -68,13 +71,13 @@ func _on_exit_body_entered(body):
 			get_tree().unload_current_scene()
 
 
-func _on_whoopee_body_exited(body):
-	if body is Player:
-		if next_level != null:
-			exit.animate()
-			player.active = false
-			
-			get_tree().change_scene_to_packed(next_level)
-			
-		else:
-			get_tree().unload_current_scene()
+#func _on_whoopee_body_exited(body):
+	#if body is Player:
+		#if next_level != null:
+			#exit.animate()
+			#player.active = false
+			#
+			#get_tree().change_scene_to_packed(next_level)
+			#
+		#else:
+			#get_tree().unload_current_scene()
