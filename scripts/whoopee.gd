@@ -5,6 +5,7 @@ extends Area2D
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _on_body_entered(body):
+	print("Whoopee collided with something")
 	if body is Player:
 		animated_sprite.play("jump")
 		body.jump(jump_force)
@@ -19,3 +20,4 @@ func pop_whoopee():
 	print("whoopee popped")
 	queue_free()
 	print("it worked")
+	
