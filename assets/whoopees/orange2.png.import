@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brkccjgnemq00"
-path="res://.godot/imported/red1.png-d98a7319e58d48fa3d71492d2196c99a.ctex"
+uid="uid://cldkwxu5wacg3"
+path="res://.godot/imported/orange2.png-ce5caef9c12fc55ecab36e4df620b050.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/whoopees/red1.png"
-dest_files=["res://.godot/imported/red1.png-d98a7319e58d48fa3d71492d2196c99a.ctex"]
+source_file="res://assets/whoopees/orange2.png"
+dest_files=["res://.godot/imported/orange2.png-ce5caef9c12fc55ecab36e4df620b050.ctex"]
 
 [params]
 

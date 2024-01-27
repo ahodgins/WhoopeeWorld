@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://di7mdq4mwvbus"]
+[gd_scene load_steps=15 format=3 uid="uid://di7mdq4mwvbus"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_alexx"]
 [ext_resource type="PackedScene" uid="uid://b8hws4urxq7ey" path="res://scenes/start_menu.tscn" id="2_62s34"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://22idlpc44208" path="res://assets/world/kenney_platformer-art-winter/sheet.png" id="8_mkiwq"]
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="9_yh0rb"]
 [ext_resource type="PackedScene" uid="uid://5varic3bi3g" path="res://scenes/darts_item.tscn" id="10_6pgfe"]
-[ext_resource type="PackedScene" uid="uid://bh5mr5cifn4ei" path="res://scenes/dart.tscn" id="11_nwrxi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hi7xh"]
 texture = ExtResource("8_mkiwq")
@@ -4360,10 +4359,11 @@ position = Vector2(644, 210)
 [node name="Whoopees" type="Node2D" parent="."]
 
 [node name="Whoopee" parent="Whoopees" instance=ExtResource("7_lpwm3")]
-position = Vector2(323, 62)
+position = Vector2(465, 101)
+starting_colour = "orange"
 
 [node name="Whoopee2" parent="Whoopees" instance=ExtResource("7_lpwm3")]
-position = Vector2(453, 62)
+position = Vector2(301, 156)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qxdlq")
@@ -4420,8 +4420,6 @@ position = Vector2(155, 136)
 position = Vector2(154, 69)
 scale = Vector2(0.89, 0.86)
 texture = SubResource("CompressedTexture2D_3uumd")
-
-[node name="Dart" parent="." instance=ExtResource("11_nwrxi")]
 
 [connection signal="body_exited" from="Whoopees/Whoopee" to="Whoopees/Whoopee" method="_on_whoopee_body_exited"]
 [connection signal="body_exited" from="Whoopees/Whoopee2" to="Whoopees/Whoopee2" method="_on_whoopee_body_exited"]

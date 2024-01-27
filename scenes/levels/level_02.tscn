@@ -4356,7 +4356,7 @@ position = Vector2(974, 209)
 [node name="Whoopees" type="Node2D" parent="."]
 
 [node name="Whoopee" parent="Whoopees" instance=ExtResource("7_ixmg3")]
-position = Vector2(539, 221)
+position = Vector2(485, 222)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qxdlq")

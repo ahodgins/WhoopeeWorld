@@ -1,17 +1,109 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2mo7q706nd0m"]
+[gd_scene load_steps=18 format=3 uid="uid://d2mo7q706nd0m"]
 
 [ext_resource type="Script" path="res://scripts/whoopee.gd" id="1_ntqtg"]
-[ext_resource type="Texture2D" uid="uid://crmji14djoosr" path="res://assets/whoopees/red1.png" id="2_7x5rl"]
-[ext_resource type="Texture2D" uid="uid://bahpxh5n08kvq" path="res://assets/whoopees/red2.png" id="3_75wm4"]
+[ext_resource type="Texture2D" uid="uid://brkccjgnemq00" path="res://assets/whoopees/red1.png" id="2_7x5rl"]
+[ext_resource type="Texture2D" uid="uid://mihkhgqbihgf" path="res://assets/whoopees/blue1.png" id="2_kymoo"]
+[ext_resource type="Texture2D" uid="uid://daml2e81fdb6l" path="res://assets/whoopees/orange1.png" id="2_yuu2r"]
+[ext_resource type="Texture2D" uid="uid://dxk0mdcw6pyy4" path="res://assets/whoopees/red2.png" id="3_75wm4"]
+[ext_resource type="Texture2D" uid="uid://cldkwxu5wacg3" path="res://assets/whoopees/orange2.png" id="3_418yl"]
+[ext_resource type="Texture2D" uid="uid://bpq3m0lvtsk7g" path="res://assets/whoopees/blue2.png" id="3_bkesy"]
+[ext_resource type="Texture2D" uid="uid://b5bh5okcc7tei" path="res://assets/whoopees/green1.png" id="4_m3eta"]
+[ext_resource type="Texture2D" uid="uid://dcss76qgylokk" path="res://assets/whoopees/green2.png" id="5_ulr4i"]
+[ext_resource type="Texture2D" uid="uid://dq8uuwquwqtw1" path="res://assets/whoopees/pink1.png" id="8_x2k0q"]
+[ext_resource type="Texture2D" uid="uid://dxxj5x8ijmgxc" path="res://assets/whoopees/pink2.png" id="9_w0m82"]
+[ext_resource type="Texture2D" uid="uid://dfrlo6qvnk35w" path="res://assets/whoopees/purple1.png" id="10_4xnp0"]
+[ext_resource type="Texture2D" uid="uid://le0qqx7n4nmv" path="res://assets/whoopees/purple2.png" id="11_4w55o"]
+[ext_resource type="Texture2D" uid="uid://ciahetvb38n7h" path="res://assets/whoopees/yellow1.png" id="14_3onkb"]
+[ext_resource type="Texture2D" uid="uid://c36qbtotbgqee" path="res://assets/whoopees/yellow2.png" id="15_hd1vb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7cxlt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_kymoo")
+}],
+"loop": true,
+"name": &"blue_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bkesy")
+}],
+"loop": true,
+"name": &"blue_pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m3eta")
+}],
+"loop": true,
+"name": &"green_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ulr4i")
+}],
+"loop": true,
+"name": &"green_pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yuu2r")
+}],
+"loop": true,
+"name": &"orange_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_418yl")
+}],
+"loop": true,
+"name": &"orange_pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_x2k0q")
+}],
+"loop": true,
+"name": &"pink_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w0m82")
+}],
+"loop": true,
+"name": &"pink_pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4xnp0")
+}],
+"loop": true,
+"name": &"purple_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_4w55o")
+}],
+"loop": true,
+"name": &"purple_pop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_7x5rl")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"red_idle",
 "speed": 1.0
 }, {
 "frames": [{
@@ -19,25 +111,40 @@ animations = [{
 "texture": ExtResource("3_75wm4")
 }],
 "loop": false,
-"name": &"jump",
+"name": &"red_pop",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_3onkb")
+}],
+"loop": true,
+"name": &"yellow_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_hd1vb")
+}],
+"loop": true,
+"name": &"yellow_pop",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3shd"]
-size = Vector2(54, 13)
+size = Vector2(56, 29.5)
 
 [node name="Whoopee" type="Area2D" groups=["Whoopee"]]
-collision_layer = 8
+collision_layer = 41
 collision_mask = 43
 script = ExtResource("1_ntqtg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7cxlt")
-animation = &"idle"
-autoplay = "idle"
+animation = &"pink_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -8)
+position = Vector2(1, 0.25)
 shape = SubResource("RectangleShape2D_a3shd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
