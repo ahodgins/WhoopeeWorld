@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c57vy1a8po5i7"]
+[gd_scene load_steps=36 format=3 uid="uid://c57vy1a8po5i7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fg1s2"]
 [ext_resource type="Texture2D" uid="uid://pwaduofpuw6x" path="res://assets/characters/main_character/fall.png" id="2_1fkvx"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bdbov056vd71i" path="res://assets/audio/SFX/fall_to_death.wav" id="7_510ss"]
 [ext_resource type="AudioStream" uid="uid://blh5u73drsogv" path="res://assets/audio/SFX/footsteps.wav" id="8_kj5bj"]
 [ext_resource type="AudioStream" uid="uid://lwewicssgbm5" path="res://assets/audio/SFX/jump.wav" id="9_86nsq"]
+[ext_resource type="AudioStream" uid="uid://bi70qh3rpar0b" path="res://assets/audio/SFX/land_sound.wav" id="10_06qum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mymx"]
 size = Vector2(16, 22)
@@ -240,3 +241,6 @@ stream = ExtResource("8_kj5bj")
 
 [node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_86nsq")
+
+[node name="land_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_06qum")

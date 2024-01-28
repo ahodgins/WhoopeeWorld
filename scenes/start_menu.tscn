@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8hws4urxq7ey"]
+[gd_scene load_steps=11 format=3 uid="uid://b8hws4urxq7ey"]
 
 [ext_resource type="FontFile" uid="uid://ccpcfw2q25vx1" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_13feh"]
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_macvd"]
+[ext_resource type="Texture2D" uid="uid://cy8ckktjarwwt" path="res://assets/world/Ice & Snow/Tundra 1.png" id="2_bpvan"]
 [ext_resource type="PackedScene" uid="uid://d2mo7q706nd0m" path="res://scenes/whoopee.tscn" id="2_nmtwr"]
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="4_ts7x2"]
 [ext_resource type="AudioStream" uid="uid://clfbwi8wuoyg4" path="res://ThemeMusic/Mixdown/ThemeMusicv2.wav" id="5_or4gc"]
@@ -31,6 +32,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_macvd")
+
+[node name="BG" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -449.0
+offset_top = -599.0
+offset_right = 1132.0
+offset_bottom = 441.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("2_bpvan")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -75,15 +92,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = 46.5
-offset_right = 57.0
-offset_bottom = 77.5
+offset_left = 13.0
+offset_top = 43.0
+offset_right = 106.0
+offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_13feh")
 theme_override_font_sizes/font_size = 12
 text = "QUIT"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 43.0
+offset_right = 9.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_13feh")
+theme_override_font_sizes/font_size = 12
+text = "Credits"
 
 [node name="Player" parent="." instance=ExtResource("4_ts7x2")]
 position = Vector2(259, 65)
@@ -111,3 +145,4 @@ autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

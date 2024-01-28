@@ -12,6 +12,7 @@ class_name Player
 @onready var fall_sound = $fall_sound
 @onready var footsteps = $footsteps
 @onready var jump_sound = $jump_sound
+@onready var land_sound = $land_sound
 
 var active = true
 var dart_count : int = 0
@@ -22,10 +23,12 @@ var MAX_ZOOM = 0.6
 var MAX_FALL_SPEED = 500
 
 var dead = false
+var has_landed = true
 
 
 func _physics_process(delta):
 	if is_on_floor() == false:
+		has_landed = false
 		if footsteps.playing:
 			footsteps.stop()
 			
@@ -34,6 +37,10 @@ func _physics_process(delta):
 			velocity.y = MAX_FALL_SPEED
 			
 	else:
+		if has_landed == false:
+			land_sound.play()
+			has_landed = true
+			
 		if abs(velocity.x) > 0:
 			if not footsteps.playing:
 				footsteps.play()
@@ -87,7 +94,6 @@ func fire_dart(mouse_pos):
 		dart.initiate(DartSpawn.global_position, mouse_pos)
 		
 		dart_count -= 1
-		print('dart fired')
 		
 	else:
 		# Could play an "empty" sound or something to show the player has no darts.
@@ -129,11 +135,8 @@ func add_popped_whoopees(layers_popped):
 
 
 func initiate_die_ouch(body):
-	print('hey')
 	for child in body.get_children():
-		print(child.name)
 		if child.name == 'penguin':
-			print(child.animation)
 			if child.animation != 'death':
 				dead = true
 	

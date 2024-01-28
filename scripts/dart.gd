@@ -28,4 +28,3 @@ func initiate(player_pos, mouse_pos):
 	# Set the velocity and rotation based on the mouse position
 	velocity = direction.normalized() * speed
 	rotation = direction.angle()
-	print('dart position: ' + str(position))

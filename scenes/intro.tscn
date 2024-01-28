@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqnbj4tnitcyk"]
+
+[ext_resource type="Script" path="res://scenes/intro.gd" id="1_nprc4"]
+[ext_resource type="Texture2D" uid="uid://hp45g7fyuura" path="res://assets/world/Ice & Snow/Tundra 3.png" id="1_wlomx"]
+[ext_resource type="FontFile" uid="uid://ccpcfw2q25vx1" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_i0vkt"]
+[ext_resource type="AudioStream" uid="uid://ypk6ik6so2cn" path="res://ThemeMusic/Mixdown/IntroSng.wav" id="4_b3iqm"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_nprc4")
+
+[node name="BG" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -147.0
+offset_right = 1004.0
+offset_bottom = 617.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("1_wlomx")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 55.0
+offset_top = 33.0
+offset_right = 427.0
+offset_bottom = 228.0
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 367.0
+offset_bottom = 265.0
+theme_override_fonts/font = ExtResource("2_i0vkt")
+theme_override_font_sizes/font_size = 10
+text = "It is the distant future... 2025 or so. To combat global warming, humanity sequestered CO2 into a collection of whoopee cushions... But they went too far, plummeting global CO2 and causing freezing temperatures, sending humanity into an apocalypse! You, the hero, the legend, must traverse the frozen wasteland and destroy enough whoopee cushions to save humanity from this frozen Whoopee World!
+
+Good LUCK!"
+autowrap_mode = 2
+
+[node name="IntroSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b3iqm")
+volume_db = 6.141
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 148.0
+offset_top = 233.0
+offset_right = 316.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_i0vkt")
+text = "Skip intro"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

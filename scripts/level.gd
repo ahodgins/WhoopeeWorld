@@ -23,9 +23,16 @@ var total_whoopee_layers = 0
 @onready var popped_label = $HUD/PoppedPanel/PoppedCounter
 @onready var whoopees = $Whoopees
 
+@onready var MUSIC = preload('res://scenes/level_music.tscn')
+var level_music
+
 var player = null
 
 func _ready():
+	level_music = MUSIC.instantiate()
+	add_child(level_music)
+	level_music.play()
+	
 	player = get_tree().get_first_node_in_group("player")
 	if player != null:
 		player.global_position = start.get_spawn_pos()
@@ -99,7 +106,6 @@ func _process(delta):
 				get_tree().reload_current_scene()
 				
 	if player.dead:
-		player.dead = false
 		if player.ouch_sound.playing:
 			await get_tree().create_timer(0.69/1.3).timeout
 			get_tree().reload_current_scene()
