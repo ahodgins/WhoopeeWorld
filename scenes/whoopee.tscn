@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2mo7q706nd0m"]
+[gd_scene load_steps=25 format=3 uid="uid://d2mo7q706nd0m"]
 
 [ext_resource type="Script" path="res://scripts/whoopee.gd" id="1_ntqtg"]
 [ext_resource type="Texture2D" uid="uid://brkccjgnemq00" path="res://assets/whoopees/red1.png" id="2_7x5rl"]
@@ -15,6 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://le0qqx7n4nmv" path="res://assets/whoopees/purple2.png" id="11_4w55o"]
 [ext_resource type="Texture2D" uid="uid://ciahetvb38n7h" path="res://assets/whoopees/yellow1.png" id="14_3onkb"]
 [ext_resource type="Texture2D" uid="uid://c36qbtotbgqee" path="res://assets/whoopees/yellow2.png" id="15_hd1vb"]
+[ext_resource type="AudioStream" uid="uid://dhup6kepmeipu" path="res://assets/audio/Farts/pink.wav" id="16_6ymon"]
+[ext_resource type="AudioStream" uid="uid://c7eck78mobs01" path="res://assets/audio/Farts/purple.wav" id="17_in7lo"]
+[ext_resource type="AudioStream" uid="uid://p6cd1a60syoc" path="res://assets/audio/Farts/blue.wav" id="18_pe4dd"]
+[ext_resource type="AudioStream" uid="uid://fcc2on6lqlq8" path="res://assets/audio/Farts/green.wav" id="19_mae00"]
+[ext_resource type="AudioStream" uid="uid://dfvjy4o1r8dnh" path="res://assets/audio/Farts/yellow.wav" id="20_ssp78"]
+[ext_resource type="AudioStream" uid="uid://qovodfv5t86m" path="res://assets/audio/Farts/orange.wav" id="21_21syy"]
+[ext_resource type="AudioStream" uid="uid://bjc67xdpxktth" path="res://assets/audio/Farts/red.wav" id="22_rrr1q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7cxlt"]
 animations = [{
@@ -146,5 +153,26 @@ animation = &"pink_idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0.25)
 shape = SubResource("RectangleShape2D_a3shd")
+
+[node name="pink" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_6ymon")
+
+[node name="purple" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_in7lo")
+
+[node name="blue" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_pe4dd")
+
+[node name="green" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_mae00")
+
+[node name="yellow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_ssp78")
+
+[node name="orange" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_21syy")
+
+[node name="red" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_rrr1q")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

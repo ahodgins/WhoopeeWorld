@@ -4356,7 +4356,7 @@ position = Vector2(644, 210)
 
 [node name="Whoopee2" parent="Whoopees" instance=ExtResource("7_lpwm3")]
 position = Vector2(377, 149)
-starting_colour = "yellow"
+starting_colour = "pink"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qxdlq")

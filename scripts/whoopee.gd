@@ -7,6 +7,14 @@ var JUMP_FORCE_INCREMENT = 50
 @export var starting_colour = 'red'
 @onready var animated_sprite = $AnimatedSprite2D
 
+@onready var pink_fart_sound = $pink
+@onready var red_fart_sound = $red
+@onready var purple_fart_sound = $purple
+@onready var blue_fart_sound = $blue
+@onready var green_fart_sound = $green
+@onready var yellow_fart_sound = $yellow
+@onready var orange_fart_sound = $orange
+
 func _ready():
 	if starting_colour == 'red':
 		animated_sprite.play("red_idle")
@@ -32,7 +40,7 @@ func _ready():
 func _on_body_entered(body):
 	if body is Player:
 		print('\nplayer enters')		
-		
+		play_fart_sound()
 		jump_force = set_jump_force()
 		body.bounce(jump_force, position)
 		
@@ -46,6 +54,7 @@ func _on_whoopee_body_exited(body):
 	print('\nplayer exits')
 	if body is Player:
 		change_colour()
+		
 	
 		
 # Later we can add a pop animation and sound here.
@@ -127,3 +136,25 @@ func set_jump_force():
 		jump_force = DEFAULT_JUMP_FORCE + JUMP_FORCE_INCREMENT*6
 		
 	return jump_force
+	
+func play_fart_sound():
+	if "pink" in animated_sprite.animation:
+		pink_fart_sound.play()
+			
+	elif "purple" in animated_sprite.animation:
+		purple_fart_sound.play()
+
+	elif "blue" in animated_sprite.animation:
+		blue_fart_sound.play()
+		
+	elif "green" in animated_sprite.animation:
+		green_fart_sound.play()
+		
+	elif "yellow" in animated_sprite.animation:
+		yellow_fart_sound.play()
+		
+	elif "orange" in animated_sprite.animation:
+		orange_fart_sound.play()
+		
+	elif "red" in animated_sprite.animation:
+		red_fart_sound.play()
