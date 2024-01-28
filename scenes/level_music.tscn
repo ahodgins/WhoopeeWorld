@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm3eq7skqvc81"]
+
+[ext_resource type="AudioStream" uid="uid://cgmeylbwlf26n" path="res://ThemeMusic/Mixdown/WTFisTHIS.wav" id="1_fac21"]
+
+[node name="LevelMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_fac21")
+volume_db = -5.733

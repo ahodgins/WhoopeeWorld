@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://hnwj0u5gmyud"]
+[gd_scene load_steps=6 format=3 uid="uid://hnwj0u5gmyud"]
 
 [ext_resource type="Script" path="res://scripts/start.gd" id="1_r5bw7"]
 [ext_resource type="Texture2D" uid="uid://fqbhsiunj3f" path="res://assets/misc_art/snowman.png" id="2_f6862"]
+[ext_resource type="AudioStream" uid="uid://15b522v4cbdi" path="res://assets/audio/SFX/start_scene.wav" id="3_gc3sq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3eq0v"]
 animations = [{
@@ -41,3 +42,6 @@ offset_top = -58.0
 offset_right = 22.0
 offset_bottom = -35.0
 text = "Start"
+
+[node name="StartSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gc3sq")

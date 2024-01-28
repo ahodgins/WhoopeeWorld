@@ -4,9 +4,10 @@ class_name Dart
 var speed = 450 # dart speed
 var time_remaining = 0.5 # seconds to stay alive
 @onready var dart_collision_shape : CollisionShape2D = $CollisionShape2D
+@onready var whoosh = $whoosh
 
 func _ready():
-	pass
+	whoosh.play()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

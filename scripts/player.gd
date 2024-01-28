@@ -8,6 +8,10 @@ class_name Player
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var DartSpawn = $DartSpawn
 @onready var camera = $Camera2D
+@onready var ouch_sound = $ouch_sound
+@onready var fall_sound = $fall_sound
+@onready var footsteps = $footsteps
+@onready var jump_sound = $jump_sound
 
 var active = true
 var dart_count : int = 0
@@ -22,9 +26,20 @@ var dead = false
 
 func _physics_process(delta):
 	if is_on_floor() == false:
+		if footsteps.playing:
+			footsteps.stop()
+			
 		velocity.y += gravity * delta
 		if velocity.y > MAX_FALL_SPEED:
 			velocity.y = MAX_FALL_SPEED
+			
+	else:
+		if abs(velocity.x) > 0:
+			if not footsteps.playing:
+				footsteps.play()
+				
+		else:
+			footsteps.stop()
 		
 	var direction = 0
 	if active == true:
@@ -47,7 +62,7 @@ func _physics_process(delta):
 		var body := collision.get_collider()
 		
 		if 'Enemy' in body.name:
-			initiate_die_ouch()
+			initiate_die_ouch(body)
 	
 	update_animations(direction)
 	
@@ -80,6 +95,7 @@ func fire_dart(mouse_pos):
 	
 	
 func jump(force):
+	jump_sound.play()
 	velocity.y = -force
 		
 		
@@ -112,7 +128,13 @@ func add_popped_whoopees(layers_popped):
 	whoopees_popped += layers_popped
 
 
-func initiate_die_ouch():
-	dead = true
+func initiate_die_ouch(body):
+	print('hey')
+	for child in body.get_children():
+		print(child.name)
+		if child.name == 'penguin':
+			print(child.animation)
+			if child.animation != 'death':
+				dead = true
 	
 	#could play some animations or sound here if needed...?

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp1xvbr4i2lur"]
+[gd_scene load_steps=7 format=3 uid="uid://bp1xvbr4i2lur"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_sreue"]
 [ext_resource type="Texture2D" uid="uid://fqbhsiunj3f" path="res://assets/misc_art/snowman.png" id="2_q3bbs"]
+[ext_resource type="AudioStream" uid="uid://1d10cnas1r5r" path="res://assets/audio/SFX/end_scene.wav" id="3_cbrp0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mdig7"]
 animations = [{
@@ -25,6 +26,9 @@ height = 38.0
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_sreue")
+
+[node name="EndSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cbrp0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -18)

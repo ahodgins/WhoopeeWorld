@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2w2hv7yoosv1"]
+[gd_scene load_steps=17 format=3 uid="uid://d2w2hv7yoosv1"]
 
 [ext_resource type="Script" path="res://scripts/penguin_enemy.gd" id="1_jivcs"]
 [ext_resource type="Texture2D" uid="uid://cj8li6ln16cmf" path="res://assets/characters/enemies/penguin/Spin Attack.png" id="1_u17fg"]
 [ext_resource type="Texture2D" uid="uid://71vqmhdiv4m8" path="res://assets/characters/enemies/penguin/Flap.png" id="2_c01j0"]
 [ext_resource type="Texture2D" uid="uid://5850yxuuqmtu" path="res://assets/characters/enemies/penguin/Death.png" id="2_smi41"]
+[ext_resource type="AudioStream" uid="uid://c8h3bfx31voff" path="res://assets/audio/SFX/penguin_death.wav" id="5_cg8c4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7siy"]
 atlas = ExtResource("1_u17fg")
@@ -100,9 +101,11 @@ script = ExtResource("1_jivcs")
 [node name="penguin" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_h4ut1")
-animation = &"flap"
-frame_progress = 0.198641
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_ew2ht")
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cg8c4")

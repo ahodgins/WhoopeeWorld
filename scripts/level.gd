@@ -16,6 +16,7 @@ var total_whoopee_layers = 0
 
 @onready var start = $Start
 @onready var exit = $Exit
+@onready var exit_sound = $Exit/EndSound
 @onready var death_zone = $deathzone
 @onready var level_label = $HUD/LevelPanel/LevelCounter
 @onready var darts_label = $HUD/DartsPanel/DartsCounter
@@ -98,7 +99,15 @@ func _process(delta):
 				get_tree().reload_current_scene()
 				
 	if player.dead:
-		get_tree().reload_current_scene()
+		player.dead = false
+		if player.ouch_sound.playing:
+			await get_tree().create_timer(0.69/1.3).timeout
+			get_tree().reload_current_scene()
+			
+		else:
+			player.ouch_sound.play()
+			player.active = false
+		
 
 
 func _on_deathzone_body_entered(body):
@@ -109,9 +118,12 @@ func _on_trap_touched_player():
 	reset_player()
 
 func reset_player():
-	player.velocity = Vector2.ZERO
-	player.global_position = start.get_spawn_pos()
+	#player.velocity = Vector2.ZERO
+	#player.global_position = start.get_spawn_pos()
 	
+	player.fall_sound.play()
+	player.active = false
+	await get_tree().create_timer(0.69).timeout
 	get_tree().reload_current_scene()
 	
 func _on_exit_body_entered(body):
@@ -122,12 +134,16 @@ func _on_exit_body_entered(body):
 			
 			if current_level >= 8:
 				if displayed_ppm >= 280:
+					exit_sound.play()
+					await get_tree().create_timer(0.69*3).timeout
 					get_tree().change_scene_to_packed(next_level)
 					
 				else:
 					display_ppm_warning = true
 					
 			else:
+				exit_sound.play()
+				await get_tree().create_timer(0.69*3).timeout
 				get_tree().change_scene_to_packed(next_level)
 			
 		else:

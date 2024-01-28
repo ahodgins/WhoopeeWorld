@@ -1,10 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://c57vy1a8po5i7"]
+[gd_scene load_steps=35 format=3 uid="uid://c57vy1a8po5i7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fg1s2"]
 [ext_resource type="Texture2D" uid="uid://pwaduofpuw6x" path="res://assets/characters/main_character/fall.png" id="2_1fkvx"]
 [ext_resource type="Texture2D" uid="uid://cgj6gtlgy8em3" path="res://assets/characters/main_character/idle.png" id="3_7260a"]
 [ext_resource type="Texture2D" uid="uid://ncdpkxuuww1d" path="res://assets/characters/main_character/jump.png" id="4_rxh7g"]
 [ext_resource type="Texture2D" uid="uid://bei1phh7dkv6u" path="res://assets/characters/main_character/run.png" id="5_1u8ou"]
+[ext_resource type="AudioStream" uid="uid://d0slgswm2fgpj" path="res://assets/audio/SFX/player_death.wav" id="6_hxag2"]
+[ext_resource type="AudioStream" uid="uid://bdbov056vd71i" path="res://assets/audio/SFX/fall_to_death.wav" id="7_510ss"]
+[ext_resource type="AudioStream" uid="uid://blh5u73drsogv" path="res://assets/audio/SFX/footsteps.wav" id="8_kj5bj"]
+[ext_resource type="AudioStream" uid="uid://lwewicssgbm5" path="res://assets/audio/SFX/jump.wav" id="9_86nsq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mymx"]
 size = Vector2(16, 22)
@@ -224,3 +228,15 @@ position_smoothing_speed = 7.0
 [node name="DartSpawn" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -13)
+
+[node name="ouch_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hxag2")
+
+[node name="fall_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_510ss")
+
+[node name="footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_kj5bj")
+
+[node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_86nsq")

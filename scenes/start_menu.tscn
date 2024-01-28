@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_macvd"]
 [ext_resource type="PackedScene" uid="uid://d2mo7q706nd0m" path="res://scenes/whoopee.tscn" id="2_nmtwr"]
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="4_ts7x2"]
-[ext_resource type="AudioStream" uid="uid://dffax0ll0kprb" path="res://ThemeMusic/Mixdown/WhoopeeSong.wav" id="5_ipg4u"]
+[ext_resource type="AudioStream" uid="uid://clfbwi8wuoyg4" path="res://ThemeMusic/Mixdown/ThemeMusicv2.wav" id="5_or4gc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xf6g"]
 font = ExtResource("1_13feh")
@@ -106,7 +106,7 @@ position = Vector2(457, -27.25)
 shape = SubResource("RectangleShape2D_p8mtv")
 
 [node name="ThemeSong" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_ipg4u")
+stream = ExtResource("5_or4gc")
 autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

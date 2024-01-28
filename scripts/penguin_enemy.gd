@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var movement_pattern = 'chase'
 @export var start_direction = 'down'
 @onready var animation_penguin = $penguin
+@onready var death_sound = $death_sound
 
 var player 
 var MOVE_SPEED = 69 * 0.3
@@ -82,5 +83,8 @@ func hover(delta):
 		
 		
 func death():
+	animation_penguin.play("death")
+	death_sound.play()
+	await get_tree().create_timer(0.69/2).timeout
 	queue_free()
 	# maybe play penguin death noise or something.
