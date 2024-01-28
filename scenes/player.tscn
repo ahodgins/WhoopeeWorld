@@ -200,6 +200,8 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 221
 script = ExtResource("1_fg1s2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -221,4 +223,4 @@ position_smoothing_speed = 7.0
 
 [node name="DartSpawn" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(20, -14)
+position = Vector2(0, -13)

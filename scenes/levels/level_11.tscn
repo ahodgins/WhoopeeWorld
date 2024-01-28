@@ -1,17 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://df87hietvu5sk"]
+[gd_scene load_steps=15 format=3 uid="uid://diwmfmme0eygw"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_4bbww"]
-[ext_resource type="PackedScene" uid="uid://cjk21f5664y8r" path="res://scenes/levels/level_03.tscn" id="2_y323y"]
-[ext_resource type="Texture2D" uid="uid://hp45g7fyuura" path="res://assets/world/Ice & Snow/Tundra 3.png" id="3_28cep"]
-[ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="4_mkusk"]
-[ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="5_axvee"]
-[ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="6_axhre"]
-[ext_resource type="PackedScene" uid="uid://d2mo7q706nd0m" path="res://scenes/whoopee.tscn" id="7_ixmg3"]
-[ext_resource type="Texture2D" uid="uid://22idlpc44208" path="res://assets/world/kenney_platformer-art-winter/sheet.png" id="7_s84hs"]
-[ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="10_xn7rf"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_hjmqv"]
+[ext_resource type="PackedScene" uid="uid://b8hws4urxq7ey" path="res://scenes/start_menu.tscn" id="2_ly8gl"]
+[ext_resource type="Texture2D" uid="uid://hp45g7fyuura" path="res://assets/world/Ice & Snow/Tundra 3.png" id="3_ixq05"]
+[ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="4_n82b7"]
+[ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="5_cm1pm"]
+[ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="6_po3rw"]
+[ext_resource type="PackedScene" uid="uid://d2mo7q706nd0m" path="res://scenes/whoopee.tscn" id="7_n8r4g"]
+[ext_resource type="Texture2D" uid="uid://22idlpc44208" path="res://assets/world/kenney_platformer-art-winter/sheet.png" id="8_4fgf5"]
+[ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="9_bu34b"]
+[ext_resource type="PackedScene" uid="uid://5varic3bi3g" path="res://scenes/darts_item.tscn" id="10_gybi5"]
+[ext_resource type="PackedScene" uid="uid://d2w2hv7yoosv1" path="res://scenes/penguin_enemy.tscn" id="11_dqxkx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hi7xh"]
-texture = ExtResource("7_s84hs")
+texture = ExtResource("8_4fgf5")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -4323,56 +4325,122 @@ sources/0 = SubResource("TileSetAtlasSource_hi7xh")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmwub"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcx5g"]
-
-[node name="Level02" type="Node2D"]
-script = ExtResource("1_4bbww")
-next_level = ExtResource("2_y323y")
-current_level = 2
+[node name="Level11" type="Node2D"]
+script = ExtResource("1_hjmqv")
+next_level = ExtResource("2_ly8gl")
+current_level = 11
 
 [node name="BG" type="TextureRect" parent="."]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -435.0
-offset_top = -500.0
-offset_right = 2253.0
-offset_bottom = 1036.0
+offset_left = -519.0
+offset_top = -1339.0
+offset_right = 4190.0
+offset_bottom = 1542.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_28cep")
-stretch_mode = 1
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("3_ixq05")
 
-[node name="deathzone" parent="." instance=ExtResource("4_mkusk")]
+[node name="deathzone" parent="." instance=ExtResource("4_n82b7")]
 
-[node name="Start" parent="." instance=ExtResource("5_axvee")]
+[node name="Start" parent="." instance=ExtResource("5_cm1pm")]
 position = Vector2(-1, 213)
 
-[node name="Exit" parent="." instance=ExtResource("6_axhre")]
-position = Vector2(1070, 210)
+[node name="Exit" parent="." instance=ExtResource("6_po3rw")]
+position = Vector2(1315, 47)
 
 [node name="Whoopees" type="Node2D" parent="."]
 
-[node name="Whoopee" parent="Whoopees" instance=ExtResource("7_ixmg3")]
-position = Vector2(485, 222)
+[node name="Whoopee" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(285, 96)
+starting_colour = "green"
+
+[node name="Whoopee2" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(283, 196)
+starting_colour = "pink"
+
+[node name="Whoopee3" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(402, 42)
+starting_colour = "yellow"
+
+[node name="Whoopee4" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(414, -85)
+starting_colour = "orange"
+
+[node name="Whoopee5" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(529, -147)
+starting_colour = "pink"
+
+[node name="Whoopee9" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(652, -140)
+
+[node name="Whoopee7" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(556, -21)
+
+[node name="Whoopee8" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(715, -21)
+
+[node name="Whoopee10" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(832, -200)
+
+[node name="Whoopee11" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1039, -518)
+starting_colour = "pink"
+
+[node name="Whoopee12" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1102, -486)
+starting_colour = "purple"
+
+[node name="Whoopee13" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1163, -444)
+starting_colour = "blue"
+
+[node name="Whoopee14" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1212, -398)
+starting_colour = "green"
+
+[node name="Whoopee15" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1265, -348)
+starting_colour = "yellow"
+
+[node name="Whoopee16" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1317, -295)
+starting_colour = "orange"
+
+[node name="Whoopee18" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1366, -243)
+
+[node name="Whoopee17" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1373, -100)
+starting_colour = "pink"
+
+[node name="Whoopee19" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1284, -99)
+starting_colour = "pink"
+
+[node name="Whoopee20" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(1187, -99)
+starting_colour = "pink"
+
+[node name="Whoopee6" parent="Whoopees" instance=ExtResource("7_n8r4g")]
+position = Vector2(533, -217)
+starting_colour = "pink"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qxdlq")
 format = 2
-layer_0/tile_data = PackedInt32Array(983038, 262144, 1, 1048574, 262144, 2, 1114110, 262144, 3, 917503, 327680, 0, 983039, 327680, 1, 1048575, 327680, 2, 1114111, 327680, 3, 851968, 393216, 0, 917504, 393216, 1, 983040, 393216, 2, 1048576, 393216, 3, 851969, 458752, 0, 917505, 458752, 1, 983041, 458752, 2, 1048577, 458752, 3, 851970, 786432, 0, 917506, 786432, 1, 983042, 786432, 2, 1048578, 786432, 3, 851971, 851968, 0, 917507, 851968, 1, 983043, 851968, 2, 1048579, 851968, 3, 851972, 917504, 0, 917508, 917504, 1, 983044, 917504, 2, 1048580, 917504, 3, 851973, 983040, 0, 917509, 983040, 1, 983045, 983040, 2, 1048581, 983040, 3, 851974, 1048576, 0, 917510, 1048576, 1, 983046, 1048576, 2, 1048582, 1048576, 3, 851975, 786432, 0, 917511, 786432, 1, 983047, 786432, 2, 1048583, 786432, 3, 851976, 851968, 0, 917512, 851968, 1, 983048, 851968, 2, 1048584, 851968, 3, 851977, 917504, 0, 917513, 917504, 1, 983049, 917504, 2, 1048585, 917504, 3, 851978, 983040, 0, 917514, 983040, 1, 983050, 983040, 2, 1048586, 983040, 3, 851979, 1048576, 0, 917515, 1048576, 1, 983051, 1048576, 2, 1048587, 1048576, 3, 851980, 786432, 0, 917516, 786432, 1, 983052, 786432, 2, 1048588, 786432, 3, 851981, 851968, 0, 917517, 851968, 1, 983053, 851968, 2, 1048589, 851968, 3, 851982, 917504, 0, 917518, 917504, 1, 983054, 917504, 2, 1048590, 917504, 3, 851983, 983040, 0, 917519, 983040, 1, 983055, 983040, 2, 1048591, 983040, 3, 851984, 1048576, 0, 917520, 1048576, 1, 983056, 1048576, 2, 1048592, 1048576, 3, 851985, 786432, 0, 917521, 786432, 1, 983057, 786432, 2, 1048593, 786432, 3, 851986, 851968, 0, 917522, 851968, 1, 983058, 851968, 2, 1048594, 851968, 3, 851987, 917504, 0, 917523, 917504, 1, 983059, 917504, 2, 1048595, 917504, 3, 851988, 983040, 0, 917524, 983040, 1, 983060, 983040, 2, 1048596, 983040, 3, 851989, 1048576, 0, 917525, 1048576, 1, 983061, 1048576, 2, 917502, 262144, 0, 1048597, 1048576, 3, 852015, 262144, 0, 917551, 262144, 1, 983087, 262144, 2, 1048623, 262144, 3, 852016, 327680, 0, 917552, 327680, 1, 983088, 327680, 2, 1048624, 327680, 3, 852017, 393216, 0, 917553, 393216, 1, 983089, 393216, 2, 1048625, 393216, 3, 852018, 458752, 0, 917554, 458752, 1, 983090, 458752, 2, 1048626, 458752, 3, 852019, 786432, 0, 917555, 786432, 1, 983091, 786432, 2, 1048627, 786432, 3, 852020, 851968, 0, 917556, 851968, 1, 983092, 851968, 2, 1048628, 851968, 3, 852021, 917504, 0, 917557, 917504, 1, 983093, 917504, 2, 1048629, 917504, 3, 852022, 983040, 0, 917558, 983040, 1, 983094, 983040, 2, 1048630, 983040, 3, 852023, 1048576, 0, 917559, 1048576, 1, 983095, 1048576, 2, 1048631, 1048576, 3, 852024, 786432, 0, 917560, 786432, 1, 983096, 786432, 2, 1048632, 786432, 3, 852025, 851968, 0, 917561, 851968, 1, 983097, 851968, 2, 1048633, 851968, 3, 852026, 917504, 0, 917562, 917504, 1, 983098, 917504, 2, 1048634, 917504, 3, 852027, 983040, 0, 917563, 983040, 1, 983099, 983040, 2, 1048635, 983040, 3, 852028, 1048576, 0, 917564, 1048576, 1, 983100, 1048576, 2, 1048636, 1048576, 3, 852029, 786432, 0, 917565, 786432, 1, 983101, 786432, 2, 1048637, 786432, 3, 852030, 851968, 0, 917566, 851968, 1, 983102, 851968, 2, 1048638, 851968, 3, 852031, 917504, 0, 917567, 917504, 1, 983103, 917504, 2, 1048639, 917504, 3, 852032, 983040, 0, 917568, 983040, 1, 983104, 983040, 2, 1048640, 983040, 3, 852033, 1048576, 0, 917569, 1048576, 1, 983105, 1048576, 2, 1048641, 1048576, 3, 852034, 786432, 0, 917570, 786432, 1, 983106, 786432, 2, 1048642, 786432, 3, 852035, 851968, 0, 917571, 851968, 1, 983107, 851968, 2, 1048643, 851968, 3, 852036, 917504, 0, 917572, 917504, 1, 983108, 917504, 2, 1048644, 917504, 3, 852037, 983040, 0, 917573, 983040, 1, 983109, 983040, 2, 1048645, 983040, 3, 852038, 1048576, 0, 917574, 1048576, 1, 983110, 1048576, 2, 1048646, 1048576, 3)
-
-[node name="Player" parent="." instance=ExtResource("10_xn7rf")]
-position = Vector2(42, 207)
+layer_0/tile_data = PackedInt32Array(1114111, 327680, 3, 1048576, 393216, 3, 1048577, 458752, 3, 1048578, 786432, 3, 1048579, 851968, 3, 1048580, 917504, 3, 1048581, 983040, 3, 1048582, 1048576, 3, 1048583, 786432, 3, 1048584, 851968, 3, 1048585, 917504, 3, 1048586, 983040, 3, 1048587, 1048576, 3, 1048588, 786432, 3, 1048589, 851968, 3, 917502, 262144, 0, 983038, 262144, 1, 1048574, 262144, 2, 1114110, 262144, 3, 917503, 327680, 0, 983039, 327680, 1, 1048575, 327680, 2, 851968, 393216, 0, 917504, 393216, 1, 983040, 393216, 2, 851969, 458752, 0, 917505, 458752, 1, 983041, 458752, 2, 851970, 786432, 0, 917506, 786432, 1, 983042, 786432, 2, 851971, 851968, 0, 917507, 851968, 1, 983043, 851968, 2, 851972, 917504, 0, 917508, 917504, 1, 983044, 917504, 2, 851973, 983040, 0, 917509, 983040, 1, 983045, 983040, 2, 851974, 1048576, 0, 917510, 1048576, 1, 983046, 1048576, 2, 851975, 786432, 0, 917511, 786432, 1, 983047, 786432, 2, 851976, 851968, 0, 917512, 851968, 1, 983048, 851968, 2, 851977, 917504, 0, 917513, 917504, 1, 983049, 917504, 2, 851978, 983040, 0, 917514, 983040, 1, 983050, 983040, 2, 851979, 1048576, 0, 917515, 1048576, 1, 983051, 1048576, 2, 851980, 786432, 0, 917516, 786432, 1, 983052, 786432, 2, 851981, 851968, 0, 917517, 851968, 1, 983053, 851968, 2, 196683, 262144, 0, 262219, 262144, 1, 327755, 262144, 2, 393291, 262144, 3, 196684, 327680, 0, 262220, 327680, 1, 327756, 327680, 2, 393292, 327680, 3, 196685, 393216, 0, 262221, 393216, 1, 327757, 393216, 2, 393293, 393216, 3, 196686, 458752, 0, 262222, 458752, 1, 327758, 458752, 2, 393294, 458752, 3, 196687, 786432, 0, 262223, 786432, 1, 327759, 786432, 2, 393295, 786432, 3, 196688, 851968, 0, 262224, 851968, 1, 327760, 851968, 2, 393296, 851968, 3, 196689, 917504, 0, 262225, 917504, 1, 327761, 917504, 2, 393297, 917504, 3, 196690, 983040, 0, 262226, 983040, 1, 327762, 983040, 2, 393298, 983040, 3, 196691, 1048576, 0, 262227, 1048576, 1, 327763, 1048576, 2, 393299, 1048576, 3, 196692, 786432, 0, 262228, 786432, 1, 327764, 786432, 2, 393300, 786432, 3, 196693, 851968, 0, 262229, 851968, 1, 327765, 851968, 2, 393301, 851968, 3, 196694, 917504, 0, 262230, 917504, 1, 327766, 917504, 2, 393302, 917504, 3, 196695, 983040, 0, 262231, 983040, 1, 327767, 983040, 2, 393303, 983040, 3, 196696, 1048576, 0, 262232, 1048576, 1, 327768, 1048576, 2, 393304, 1048576, 3, 196697, 786432, 0, 262233, 786432, 1, 327769, 786432, 2, 393305, 786432, 3)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LevelPanel" type="Panel" parent="HUD"]
-offset_left = 10.0
-offset_top = 6.0
-offset_right = 130.0
-offset_bottom = 44.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 122.0
+offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_dmwub")
 metadata/_edit_group_ = true
 
@@ -4387,12 +4455,31 @@ theme_override_font_sizes/font_size = 25
 text = "
 "
 
+[node name="PoppedPanel" type="Panel" parent="HUD"]
+offset_left = 291.0
+offset_top = 6.0
+offset_right = 474.0
+offset_bottom = 41.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dmwub")
+metadata/_edit_group_ = true
+
+[node name="PoppedCounter" type="Label" parent="HUD/PoppedPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Local CO2 ppm: 150"
+horizontal_alignment = 2
+
 [node name="DartsPanel" type="Panel" parent="HUD"]
-offset_left = 5.0
-offset_top = 34.0
-offset_right = 125.0
-offset_bottom = 72.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_pcx5g")
+offset_left = 2.0
+offset_top = 27.0
+offset_right = 122.0
+offset_bottom = 65.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dmwub")
 metadata/_edit_group_ = true
 
 [node name="DartsCounter" type="Label" parent="HUD/DartsPanel"]
@@ -4406,10 +4493,34 @@ theme_override_font_sizes/font_size = 25
 text = "
 "
 
+[node name="PPMWarning" type="Panel" parent="HUD"]
+visible = false
+offset_left = 152.0
+offset_top = 115.0
+offset_right = 335.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dmwub")
+metadata/_edit_group_ = true
+
+[node name="PPMLabel" type="Label" parent="HUD/PPMWarning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Need at least 280 ppm to complete level!"
+horizontal_alignment = 2
+
+[node name="Player" parent="." instance=ExtResource("9_bu34b")]
+position = Vector2(42, 207)
+
 [node name="Instructions" type="Panel" parent="."]
 offset_left = -112.0
 offset_top = 132.0
-offset_right = 111.0
+offset_right = 56.0
 offset_bottom = 157.0
 
 [node name="Panel" type="Panel" parent="Instructions"]
@@ -4424,6 +4535,45 @@ rotation = -0.539307
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Try bouncing on a whoopee!"
+text = "This one looks tricky!"
+
+[node name="DartsItem" parent="." instance=ExtResource("10_gybi5")]
+position = Vector2(120, 186)
+
+[node name="DartsItem2" parent="." instance=ExtResource("10_gybi5")]
+position = Vector2(888, -340)
+
+[node name="PenguinEnemy" parent="." instance=ExtResource("11_dqxkx")]
+position = Vector2(236, 160)
+movement_pattern = "hover"
+
+[node name="PenguinEnemy2" parent="." instance=ExtResource("11_dqxkx")]
+position = Vector2(329, 165)
+movement_pattern = "hover"
+start_direction = "up"
+
+[node name="PenguinEnemy3" parent="." instance=ExtResource("11_dqxkx")]
+position = Vector2(630, -68)
+movement_pattern = "strafe"
+start_direction = "left"
 
 [connection signal="body_exited" from="Whoopees/Whoopee" to="Whoopees/Whoopee" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee2" to="Whoopees/Whoopee2" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee3" to="Whoopees/Whoopee3" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee4" to="Whoopees/Whoopee4" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee5" to="Whoopees/Whoopee5" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee9" to="Whoopees/Whoopee9" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee7" to="Whoopees/Whoopee7" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee8" to="Whoopees/Whoopee8" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee10" to="Whoopees/Whoopee10" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee11" to="Whoopees/Whoopee11" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee12" to="Whoopees/Whoopee12" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee13" to="Whoopees/Whoopee13" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee14" to="Whoopees/Whoopee14" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee15" to="Whoopees/Whoopee15" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee16" to="Whoopees/Whoopee16" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee18" to="Whoopees/Whoopee18" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee17" to="Whoopees/Whoopee17" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee19" to="Whoopees/Whoopee19" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee20" to="Whoopees/Whoopee20" method="_on_whoopee_body_exited"]
+[connection signal="body_exited" from="Whoopees/Whoopee6" to="Whoopees/Whoopee6" method="_on_whoopee_body_exited"]

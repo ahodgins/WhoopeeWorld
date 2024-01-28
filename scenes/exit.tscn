@@ -23,6 +23,7 @@ height = 38.0
 
 [node name="Exit" type="Area2D"]
 collision_layer = 16
+collision_mask = 2
 script = ExtResource("1_sreue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

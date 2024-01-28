@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var gravity = 400
-@export var speed = 250
+@export var speed = 250 * 60
 @export var jump_force = 240
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -11,15 +11,20 @@ class_name Player
 
 var active = true
 var dart_count : int = 0
+var whoopees_popped : int = 0
 var ZOOM_FACTOR = 0.15
 var DEFAULT_ZOOM = 0.9
 var MAX_ZOOM = 0.6
+var MAX_FALL_SPEED = 500
+
+var dead = false
+
 
 func _physics_process(delta):
 	if is_on_floor() == false:
 		velocity.y += gravity * delta
-		if velocity.y > 500:
-			velocity.y = 500
+		if velocity.y > MAX_FALL_SPEED:
+			velocity.y = MAX_FALL_SPEED
 		
 	var direction = 0
 	if active == true:
@@ -34,8 +39,15 @@ func _physics_process(delta):
 	if direction != 0:
 		animated_sprite.flip_h = (direction == -1)
 		
-	velocity.x = direction * speed
+	velocity.x = direction * speed * delta
 	move_and_slide()
+	
+	for index in get_slide_collision_count():
+		var collision := get_slide_collision(index)
+		var body := collision.get_collider()
+		
+		if 'Enemy' in body.name:
+			initiate_die_ouch()
 	
 	update_animations(direction)
 	
@@ -72,7 +84,7 @@ func jump(force):
 		
 		
 func bounce(whoopee_force, whoopee_position):
-	if position.y < whoopee_position.y:
+	if velocity.y > 0:
 		velocity.y = -whoopee_force
 		
 	else:
@@ -94,3 +106,13 @@ func update_animations(direction):
 			
 func add_darts(num_darts):
 	dart_count += num_darts
+
+
+func add_popped_whoopees(layers_popped):
+	whoopees_popped += layers_popped
+
+
+func initiate_die_ouch():
+	dead = true
+	
+	#could play some animations or sound here if needed...?

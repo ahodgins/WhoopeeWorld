@@ -39,27 +39,30 @@ func _ready():
 
 func _on_body_entered(body):
 	if body is Player:
-		print('\nplayer enters')		
 		play_fart_sound()
+		
 		jump_force = set_jump_force()
 		body.bounce(jump_force, position)
-		
 		change_colour()
 		
+		body.add_popped_whoopees(1)
+		
 	if body is Dart:
+		var layers_popped = get_layers()
+		$"../../Player".add_popped_whoopees(layers_popped)
 		body.queue_free()
 		pop()
 
 func _on_whoopee_body_exited(body):
-	print('\nplayer exits')
 	if body is Player:
 		change_colour()
-		
 	
 		
 # Later we can add a pop animation and sound here.
 func pop():
-	print('POP')
+	var red_fart = $red.duplicate()
+	get_parent().add_child(red_fart)
+	red_fart.play()
 	queue_free()
 	
 	const SMOKE_SCENE = preload("res://scenes/smoke_explosion.tscn")
@@ -68,9 +71,10 @@ func pop():
 	get_parent().add_child(smoke)
 	smoke.global_position = global_position
 	
+	#await get_tree().create_timer(3).timeout
+	
 	
 func change_colour():
-	print('animation was ' + animated_sprite.animation)
 	if animated_sprite.animation == 'pink_idle':
 		animated_sprite.play("purple_pop")
 			
@@ -109,8 +113,6 @@ func change_colour():
 		
 	elif animated_sprite.animation == 'red_idle':
 		pop()
-		
-	print('animation is now ' + animated_sprite.animation)
 	
 	
 func set_jump_force():
@@ -155,6 +157,27 @@ func play_fart_sound():
 		
 	elif animated_sprite.animation == 'orange_idle':
 		orange_fart_sound.play()
+
+
+# This uses the whoopee colour to determine how many layers exist.
+func get_layers():
+	if "pink" in animated_sprite.animation:
+		return 7
+			
+	elif "purple" in animated_sprite.animation:
+		return 6
+
+	elif "blue" in animated_sprite.animation:
+		return 5
 		
-	elif animated_sprite.animation == 'red_idle':
-		red_fart_sound.play()
+	elif "green" in animated_sprite.animation:
+		return 4
+		
+	elif "yellow" in animated_sprite.animation:
+		return 3
+		
+	elif "orange" in animated_sprite.animation:
+		return 2
+		
+	elif "red" in animated_sprite.animation:
+		return 1

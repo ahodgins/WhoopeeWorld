@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://cjg4ld3o3qgw0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_oqkun"]
-[ext_resource type="PackedScene" uid="uid://b8hws4urxq7ey" path="res://scenes/start_menu.tscn" id="2_5doj0"]
-[ext_resource type="Texture2D" uid="uid://btoe1stpkwahm" path="res://assets/world/WinterTileset/png/BG/BG.png" id="3_wbugg"]
+[ext_resource type="PackedScene" uid="uid://cbe2kv61q83i2" path="res://scenes/levels/level_06.tscn" id="2_un28d"]
+[ext_resource type="Texture2D" uid="uid://hp45g7fyuura" path="res://assets/world/Ice & Snow/Tundra 3.png" id="3_yvh7f"]
 [ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="4_rvjyn"]
 [ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="5_6td5n"]
 [ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="6_wqyd3"]
@@ -4323,26 +4323,24 @@ sources/0 = SubResource("TileSetAtlasSource_hi7xh")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dmwub"]
 
-[node name="Level04" type="Node2D"]
+[node name="Level05" type="Node2D"]
 script = ExtResource("1_oqkun")
-next_level = ExtResource("2_5doj0")
-is_final_level = true
-current_level = 4
+next_level = ExtResource("2_un28d")
+current_level = 5
 
-[node name="WASD" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -806.0
-offset_top = -398.0
-offset_right = 2094.0
-offset_bottom = 518.0
+offset_left = -731.0
+offset_top = -611.0
+offset_right = 2641.0
+offset_bottom = 1424.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_wbugg")
-stretch_mode = 1
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("3_yvh7f")
 
 [node name="deathzone" parent="." instance=ExtResource("4_rvjyn")]
 

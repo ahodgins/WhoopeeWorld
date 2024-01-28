@@ -4335,15 +4335,14 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -232.0
-offset_top = -556.0
-offset_right = 2456.0
-offset_bottom = 980.0
+offset_left = -968.0
+offset_top = -797.0
+offset_right = 2989.0
+offset_bottom = 1485.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_cojj3")
-stretch_mode = 1
 
 [node name="deathzone" parent="." instance=ExtResource("4_s4ig4")]
 
@@ -4412,7 +4411,7 @@ text = "
 [node name="Instructions" type="Panel" parent="."]
 offset_left = -112.0
 offset_top = 132.0
-offset_right = 41.0
+offset_right = 52.0
 offset_bottom = 157.0
 
 [node name="Panel" type="Panel" parent="Instructions"]
@@ -4427,7 +4426,7 @@ rotation = -0.539307
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Try a few cushions!"
+text = "Try a few whoopees!"
 
 [node name="Instructions2" type="Panel" parent="."]
 offset_left = 1245.0

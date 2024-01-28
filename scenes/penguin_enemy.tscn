@@ -93,11 +93,15 @@ animations = [{
 radius = 8.0
 
 [node name="PenguinEnemy" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 34
 script = ExtResource("1_jivcs")
 
 [node name="penguin" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_h4ut1")
 animation = &"flap"
+frame_progress = 0.198641
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

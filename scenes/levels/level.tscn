@@ -4419,7 +4419,7 @@ text = "
 [node name="Instructions" type="Panel" parent="."]
 offset_left = -112.0
 offset_top = 132.0
-offset_right = 113.0
+offset_right = 135.0
 offset_bottom = 157.0
 
 [node name="Panel" type="Panel" parent="Instructions"]
@@ -4434,6 +4434,6 @@ rotation = -0.539307
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Use \"WASD\" and \"spacebar\"!"
+text = "Use \"WASD\" to move and jump!"
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

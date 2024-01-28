@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WhoopeeWorld"
-run/main_scene="res://scenes/levels/level_04.tscn"
+run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -42,7 +42,7 @@ move_left={
 }
 jump={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"echo":false,"script":null)
 ]
 }
 quit={
@@ -69,6 +69,8 @@ fire_dart={
 2d_physics/layer_4="whoopee"
 2d_physics/layer_5="exit_area"
 2d_physics/layer_6="dart"
+2d_physics/layer_7="penguin"
+2d_physics/layer_8="collectables"
 
 [rendering]
 

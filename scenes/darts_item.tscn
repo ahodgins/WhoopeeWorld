@@ -18,6 +18,8 @@ animations = [{
 radius = 14.0
 
 [node name="DartsItem" type="Area2D"]
+collision_layer = 128
+collision_mask = 2
 script = ExtResource("1_i6r7p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

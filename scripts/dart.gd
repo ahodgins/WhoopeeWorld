@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Dart
 
 var speed = 450 # dart speed
-var time_remaining = 2.5 # seconds to stay alive
+var time_remaining = 0.5 # seconds to stay alive
 @onready var dart_collision_shape : CollisionShape2D = $CollisionShape2D
 
 func _ready():
