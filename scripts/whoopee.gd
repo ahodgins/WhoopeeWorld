@@ -30,68 +30,78 @@ func _ready():
 		animated_sprite.play("pink_idle")
 
 func _on_body_entered(body):
-	print("Whoopee collided with something")
 	if body is Player:
-		change_colour()
-			 
-		#animated_sprite.play("jump")
+		print('\nplayer enters')		
 		
 		jump_force = set_jump_force()
 		body.bounce(jump_force, position)
+		
+		change_colour()
 		
 	if body is Dart:
 		body.queue_free()
 		pop()
 
 func _on_whoopee_body_exited(body):
+	print('\nplayer exits')
 	if body is Player:
 		change_colour()
-			
+	
 		
 # Later we can add a pop animation and sound here.
 func pop():
+	print('POP')
 	queue_free()
+	
+	const SMOKE_SCENE = preload("res://scenes/smoke_explosion.tscn")
+	var smoke = SMOKE_SCENE.instantiate()
+	
+	get_parent().add_child(smoke)
+	smoke.global_position = global_position
 	
 	
 func change_colour():
+	print('animation was ' + animated_sprite.animation)
 	if animated_sprite.animation == 'pink_idle':
 		animated_sprite.play("purple_pop")
 			
 	elif animated_sprite.animation == 'purple_pop':
-		animated_sprite.play("blue_idle")
+		animated_sprite.play("purple_idle")
 			
 	elif animated_sprite.animation == 'purple_idle':
-		animated_sprite.play("purple_pop")
-			
-	elif animated_sprite.animation == 'blue_pop':
-		animated_sprite.play("green_idle")
-			
-	elif animated_sprite.animation == 'blue_idle':
 		animated_sprite.play("blue_pop")
 			
-	elif animated_sprite.animation == 'green_pop':
-		animated_sprite.play("yellow_idle")
-			
-	elif animated_sprite.animation == 'green_idle':
+	elif animated_sprite.animation == 'blue_pop':
+		animated_sprite.play("blue_idle")
+		
+	elif animated_sprite.animation == 'blue_idle':
 		animated_sprite.play("green_pop")
 			
-	elif animated_sprite.animation == 'yellow_pop':
-		animated_sprite.play("orange_idle")
-			
-	elif animated_sprite.animation == 'yellow_idle':
+	elif animated_sprite.animation == 'green_idle':
 		animated_sprite.play("yellow_pop")
 			
-	elif animated_sprite.animation == 'orange_idle':
+	elif animated_sprite.animation == 'green_pop':
+		animated_sprite.play("green_idle")
+			
+	elif animated_sprite.animation == 'yellow_idle':
 		animated_sprite.play("orange_pop")
 			
-	elif animated_sprite.animation == 'orange_pop':
-		animated_sprite.play("red_idle")
+	elif animated_sprite.animation == 'yellow_pop':
+		animated_sprite.play("yellow_idle")
 			
-	elif animated_sprite.animation == 'red_idle':
+	elif animated_sprite.animation == 'orange_idle':
 		animated_sprite.play("red_pop")
 			
+	elif animated_sprite.animation == 'orange_pop':
+		animated_sprite.play("orange_idle")
+		
 	elif animated_sprite.animation == 'red_pop':
-		queue_free()
+		animated_sprite.play("red_idle")
+		
+	elif animated_sprite.animation == 'red_idle':
+		pop()
+		
+	print('animation is now ' + animated_sprite.animation)
 	
 	
 func set_jump_force():

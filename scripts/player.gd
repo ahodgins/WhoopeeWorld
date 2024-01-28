@@ -14,7 +14,6 @@ var dart_count : int = 0
 var ZOOM_FACTOR = 0.15
 var DEFAULT_ZOOM = 0.9
 var MAX_ZOOM = 0.6
-var CAMERA_POSITION_INCREMENT = 3
 
 func _physics_process(delta):
 	if is_on_floor() == false:
@@ -44,16 +43,10 @@ func _physics_process(delta):
 		if camera.zoom.x > MAX_ZOOM:
 			camera.zoom.x -= ZOOM_FACTOR * delta
 			camera.zoom.y -= ZOOM_FACTOR * delta
-			
-		if camera.position.y < 300:
-			camera.position.y += CAMERA_POSITION_INCREMENT
 		
 	elif camera.zoom.x < DEFAULT_ZOOM:
 		camera.zoom.x += ZOOM_FACTOR * 3 * delta
 		camera.zoom.y += ZOOM_FACTOR * 3 * delta
-		
-		if camera.position.y > 0:
-			camera.position.y -= CAMERA_POSITION_INCREMENT * 3
 	
 
 # Fire dart uses the mouse position when a user clicks to set a target, and

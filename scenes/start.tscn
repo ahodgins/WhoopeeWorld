@@ -35,6 +35,7 @@ shape = SubResource("CapsuleShape2D_libvu")
 position = Vector2(39, -29)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -18.0
 offset_top = -58.0
 offset_right = 22.0
