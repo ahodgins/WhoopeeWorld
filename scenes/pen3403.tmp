@@ -1,0 +1,104 @@
+[gd_scene load_steps=16 format=3 uid="uid://d2w2hv7yoosv1"]
+
+[ext_resource type="Script" path="res://scripts/penguin_enemy.gd" id="1_jivcs"]
+[ext_resource type="Texture2D" uid="uid://cj8li6ln16cmf" path="res://assets/characters/enemies/penguin/Spin Attack.png" id="1_u17fg"]
+[ext_resource type="Texture2D" uid="uid://71vqmhdiv4m8" path="res://assets/characters/enemies/penguin/Flap.png" id="2_c01j0"]
+[ext_resource type="Texture2D" uid="uid://5850yxuuqmtu" path="res://assets/characters/enemies/penguin/Death.png" id="2_smi41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7siy"]
+atlas = ExtResource("1_u17fg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw5pj"]
+atlas = ExtResource("1_u17fg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj5pd"]
+atlas = ExtResource("1_u17fg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdlyo"]
+atlas = ExtResource("1_u17fg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ic0t"]
+atlas = ExtResource("1_u17fg")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlrcc"]
+atlas = ExtResource("1_u17fg")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75702"]
+atlas = ExtResource("1_u17fg")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44weu"]
+atlas = ExtResource("2_c01j0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxco6"]
+atlas = ExtResource("2_c01j0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4ut1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7siy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw5pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj5pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdlyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ic0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlrcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75702")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_smi41")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44weu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxco6")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ew2ht"]
+radius = 8.0
+
+[node name="PenguinEnemy" type="CharacterBody2D"]
+script = ExtResource("1_jivcs")
+
+[node name="penguin" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h4ut1")
+animation = &"flap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_ew2ht")

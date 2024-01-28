@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://di7mdq4mwvbus"]
+[gd_scene load_steps=14 format=3 uid="uid://di7mdq4mwvbus"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_alexx"]
 [ext_resource type="PackedScene" uid="uid://b8hws4urxq7ey" path="res://scenes/start_menu.tscn" id="2_62s34"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d2mo7q706nd0m" path="res://scenes/whoopee.tscn" id="7_lpwm3"]
 [ext_resource type="Texture2D" uid="uid://22idlpc44208" path="res://assets/world/kenney_platformer-art-winter/sheet.png" id="8_mkiwq"]
 [ext_resource type="PackedScene" uid="uid://c57vy1a8po5i7" path="res://scenes/player.tscn" id="9_yh0rb"]
+[ext_resource type="PackedScene" uid="uid://d2w2hv7yoosv1" path="res://scenes/penguin_enemy.tscn" id="10_7cos2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hi7xh"]
 texture = ExtResource("8_mkiwq")
@@ -4425,5 +4426,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Some cushions take more bounces!"
+
+[node name="PenguinEnemy" parent="." instance=ExtResource("10_7cos2")]
+position = Vector2(177, 134)
 
 [connection signal="body_exited" from="Whoopees/Whoopee2" to="Whoopees/Whoopee2" method="_on_whoopee_body_exited"]

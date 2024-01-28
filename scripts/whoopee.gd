@@ -138,23 +138,23 @@ func set_jump_force():
 	return jump_force
 	
 func play_fart_sound():
-	if "pink" in animated_sprite.animation:
+	if animated_sprite.animation == 'pink_idle':
 		pink_fart_sound.play()
 			
-	elif "purple" in animated_sprite.animation:
+	elif animated_sprite.animation == 'purple_idle':
 		purple_fart_sound.play()
 
-	elif "blue" in animated_sprite.animation:
+	elif animated_sprite.animation == 'blue_idle':
 		blue_fart_sound.play()
 		
-	elif "green" in animated_sprite.animation:
+	elif animated_sprite.animation == 'green_idle':
 		green_fart_sound.play()
 		
-	elif "yellow" in animated_sprite.animation:
+	elif animated_sprite.animation == 'yellow_idle':
 		yellow_fart_sound.play()
 		
-	elif "orange" in animated_sprite.animation:
+	elif animated_sprite.animation == 'orange_idle':
 		orange_fart_sound.play()
 		
-	elif "red" in animated_sprite.animation:
+	elif animated_sprite.animation == 'red_idle':
 		red_fart_sound.play()
