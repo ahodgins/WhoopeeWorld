@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://qfv8oigod7bx"]
+[gd_scene load_steps=15 format=3 uid="uid://qfv8oigod7bx"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_bi3e3"]
 [ext_resource type="PackedScene" uid="uid://df87hietvu5sk" path="res://scenes/levels/level_02.tscn" id="2_y2ppb"]
+[ext_resource type="Texture2D" uid="uid://hp45g7fyuura" path="res://assets/world/Ice & Snow/Tundra 3.png" id="3_fps0b"]
 [ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="3_godbk"]
 [ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="4_ks1dw"]
 [ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="5_f0hp6"]
@@ -4335,13 +4336,14 @@ texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -806.0
-offset_top = -398.0
-offset_right = 2094.0
-offset_bottom = 518.0
+offset_left = -519.0
+offset_top = -411.0
+offset_right = 2169.0
+offset_bottom = 1125.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("3_fps0b")
 stretch_mode = 1
 
 [node name="deathzone" parent="." instance=ExtResource("3_godbk")]

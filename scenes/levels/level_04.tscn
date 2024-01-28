@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_alexx"]
 [ext_resource type="PackedScene" uid="uid://b8hws4urxq7ey" path="res://scenes/start_menu.tscn" id="2_62s34"]
-[ext_resource type="Texture2D" uid="uid://btoe1stpkwahm" path="res://assets/world/WinterTileset/png/BG/BG.png" id="3_6nern"]
+[ext_resource type="Texture2D" uid="uid://hp45g7fyuura" path="res://assets/world/Ice & Snow/Tundra 3.png" id="3_a6b5e"]
 [ext_resource type="PackedScene" uid="uid://cisij84jh6u67" path="res://scenes/deathzone.tscn" id="4_wryr5"]
 [ext_resource type="PackedScene" uid="uid://hnwj0u5gmyud" path="res://scenes/start.tscn" id="5_quapq"]
 [ext_resource type="PackedScene" uid="uid://bp1xvbr4i2lur" path="res://scenes/exit.tscn" id="6_bi30t"]
@@ -4329,19 +4329,19 @@ next_level = ExtResource("2_62s34")
 is_final_level = true
 current_level = 4
 
-[node name="WASD" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -806.0
-offset_top = -398.0
-offset_right = 2094.0
-offset_bottom = 518.0
+offset_left = -704.0
+offset_top = -519.0
+offset_right = 1984.0
+offset_bottom = 1017.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_6nern")
+texture = ExtResource("3_a6b5e")
 stretch_mode = 1
 
 [node name="deathzone" parent="." instance=ExtResource("4_wryr5")]
