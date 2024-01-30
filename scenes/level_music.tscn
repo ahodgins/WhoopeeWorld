@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cm3eq7skqvc81"]
 
-[ext_resource type="AudioStream" uid="uid://cc6jqgbtn4780" path="res://ThemeMusic/Mixdown/TrumpetMen.wav" id="1_ox4e6"]
+[ext_resource type="AudioStream" uid="uid://dlowbdnor1f4" path="res://assets/audio/Songs/ThemeMusicv2.wav" id="1_hx17k"]
 
 [node name="LevelMusic" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_ox4e6")
-volume_db = -8.6
+stream = ExtResource("1_hx17k")
+volume_db = -0.82
