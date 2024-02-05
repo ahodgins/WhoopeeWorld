@@ -28,6 +28,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
 
+[gui]
+
+theme/custom="res://editor_theme.tres"
+
 [input]
 
 move_right={
