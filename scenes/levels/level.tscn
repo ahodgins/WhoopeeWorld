@@ -4419,19 +4419,21 @@ text = "
 [node name="Instructions" type="Panel" parent="."]
 offset_left = -112.0
 offset_top = 132.0
-offset_right = 203.0
-offset_bottom = 158.0
+offset_right = 135.0
+offset_bottom = 157.0
 
 [node name="Panel" type="Panel" parent="Instructions"]
-layout_mode = 1
+layout_mode = 0
+offset_left = 90.0
+offset_top = 25.0
+offset_right = 95.0
+offset_bottom = 48.0
 rotation = -0.539307
 
 [node name="Label" type="Label" parent="Instructions"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 315.0
-offset_bottom = 24.0
-text = "Use \"WASD\" to move and Space to jump!"
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Use \"WASD\" to move and jump!"
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
