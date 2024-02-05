@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/intro.gd" id="1_nprc4"]
 [ext_resource type="Texture2D" uid="uid://hp45g7fyuura" path="res://assets/world/Ice & Snow/Tundra 3.png" id="1_wlomx"]
 [ext_resource type="FontFile" uid="uid://ccpcfw2q25vx1" path="res://assets/fonts/Kenney Pixel Square.ttf" id="2_i0vkt"]
-[ext_resource type="AudioStream" uid="uid://ce7vakg5eu67s" path="res://assets/audio/Songs/IntroSng.wav" id="4_b3iqm"]
+[ext_resource type="AudioStream" uid="uid://ypk6ik6so2cn" path="res://ThemeMusic/Mixdown/IntroSng.wav" id="4_b3iqm"]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_nprc4")
